@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/css.css">
+  <title>demo</title>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+
+    body {
+      background-color: #2c3e50;
+    }
+
+    .box {
+      width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .box_mian {
+
+      width: 380px;
+      height: 450px;
+      margin-left: 10px;
+      float: left;
+      margin-top: 100px;
+      position: relative;
+      overflow: hidden;
+      background: #999;
+    }
+
+    .box_mian:hover {
+
+      width: 380px;
+      height: 450px;
+      margin-left: 10px;
+      float: left;
+      margin-top: 100px;
+      position: relative;
+      overflow: hidden;
+      background: inherit;
+    }
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    svg line {
+      stroke-width: 5;
+      stroke: #fff;
+      fill: none;
+      stroke-dasharray: 380;
+      -webkit-transition: -webkit-transform .6s ease-out;
+      transition: transform .6s ease-out;
+    }
+
+    svg line.left {
+      stroke-width: 5;
+      stroke: #fff;
+      fill: none;
+      stroke-dasharray: 450;
+      -webkit-transition: -webkit-transform .6s ease-out;
+      transition: transform .6s ease-out;
+    }
+
+    svg line.right {
+      stroke-width: 5;
+      stroke: #fff;
+      fill: none;
+      stroke-dasharray: 450;
+      -webkit-transition: -webkit-transform .6s ease-out;
+      transition: transform .6s ease-out;
+    }
+
+    .box_mian:hover svg line.top {
+      transform: translateX(-760px);
+      -webkit-transform: translateX(-760px);
+      -moz-transform: translateX(-760px);
+      -o-transform: translateX(-760px);
+    }
+
+    .box_mian:hover svg line.bottom {
+      transform: translateX(760px);
+      -webkit-transform: translateX(760px);
+      -moz-transform: translateX(760px);
+      -o-transform: translateX(760px);
+    }
+
+    .box_mian:hover svg line.right {
+      transform: translateY(-900px);
+      -webkit-transform: translateY(-900px);
+      -moz-transform: translateY(-900px);
+      -o-transform: translateY(-900px);
+    }
+
+    .box_mian:hover svg line.left {
+      transform: translateY(900px);
+      -webkit-transform: translateY(900px);
+      -moz-transform: translateY(900px);
+      -o-transform: translateY(900px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="box_mian">
+      <svg height="450" width="385">
+        <line class="top" x1="0" y1="0" x2="1200" y2="0" />
+        <line class="left" x1="0" y1="450" x2="0" y2="-1200" />
+        <line class="bottom" x1="380" y1="450" x2="-1200" y2="450" />
+        <line class="right" x1="380" y1="0" x2="380" y2="1400" />
+      </svg>
+    </div>
+    <div class="box_mian">
+      <svg height="450" width="385">
+        <line class="top" x1="0" y1="0" x2="1200" y2="0" />
+        <line class="left" x1="0" y1="450" x2="0" y2="-1200" />
+        <line class="bottom" x1="380" y1="450" x2="-1200" y2="450" />
+        <line class="right" x1="380" y1="0" x2="380" y2="1400" />
+      </svg>
+    </div>
+    <div class="box_mian">
+      <svg height="450" width="385">
+        <line class="top" x1="0" y1="0" x2="1200" y2="0" />
+        <line class="left" x1="0" y1="450" x2="0" y2="-1200" />
+        <line class="bottom" x1="380" y1="450" x2="-1200" y2="450" />
+        <line class="right" x1="380" y1="0" x2="380" y2="1400" />
+      </svg>
+    </div>
+  </div>
+</body>
+
+</html>

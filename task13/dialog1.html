@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>文档标题</title>
+</head>
+<style type="text/css">
+  .content {
+    width: 100px;
+    z-index: 2;
+    border: 1px solid #adc3d9;
+    background-color: #fff;
+    position: relative;
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+
+  .cor {
+    position: absolute;
+    top: -15px;
+    left: 6px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent transparent #adc3d9;
+  }
+
+  .cor-in {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    border-width: 6px;
+    border-color: transparent transparent gray;
+  }
+
+  .con {
+    padding: 50px;
+    box-sizing: border-box;
+  }
+</style>
+
+<body>
+
+  <div class="content">
+    <div class="cor">
+      <div class="cor-in"></div>
+    </div>
+    <div class="con">
+    </div>
+  </div>
+
+</body>
+
+</html>

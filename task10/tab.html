@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tab</title>
+  <style>
+
+    body {
+      margin: 0;
+      color: #898989;
+    }
+
+    .menu {
+      width: 900px;
+      height: 48px;
+      z-index: 100;
+      position: relative;
+      margin: 22px auto;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+
+    .menu li {
+      float: left;
+      width: 128px;
+      position: relative;
+    }
+
+    .menu a {
+      display: block;
+      font-size: 16px;
+      text-decoration: none;
+      color: #F0F0F0;
+      width: 128px;
+      background: #555655;
+      line-height: 48px;
+      text-align: center;
+    }
+
+    .menu ul ul {
+      /*第二层菜单*/
+      display: none;
+      position: absolute;
+      height: 0;
+      top: 48px;
+      left: 0;
+      width: 128px;
+    }
+
+    .menu ul ul ul {
+      /*第三层菜单*/
+      left: 128px;
+      top: 0;
+      width: 128px;
+    }
+
+    .menu :hover>a,
+    .menu ul ul :hover>a {
+      /*高亮第二层菜单的条目*/
+      background: #8F8F8F;
+    }
+
+    .menu ul :hover ul,
+    /*第二层菜单*/
+
+    .menu ul :hover ul :hover ul
+    /*第三层菜单*/
+
+    {
+      display: block;
+    }
+
+
+    .arrow-down {
+      border: 0;
+      height: 9px;
+      top: 19px;
+      right: 30px;
+      width: 11px;
+      position: absolute;
+    }
+
+    .arrow-right {
+      border: 0;
+      height: 11px;
+      top: 19px;
+      right: 27px;
+      width: 11px;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu">
+    <ul>
+      <li>
+        <a class="first-nav" href="#">首页</a>
+      </li>
+      <li>
+        <a href="#">作品</a>
+
+      </li>
+      <li>
+        <a href="#">更多</a>
+        <div class="arrow-down"></div>
+        <ul>
+          <li><a href="#">GITHUB</a></li>
+          <li><a href="#">博客</a></li>
+          <li><a href="#">知乎</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</body>
+
+</html>

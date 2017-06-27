@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>form</title>
+  <style>
+    .content {
+      width: 600px;
+      margin: 0 auto;
+    }
+
+    .form {
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    form {
+      margin: 10px;
+    }
+
+    h2 {
+      padding: 10px;
+      background-color: #009688;
+      color: #fff;
+    }
+
+    label {
+      color: #757575;
+    }
+
+    .clear::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    input[type=text],
+    .form textarea {
+      border: none;
+      border-bottom: 1px solid #808080;
+      width: 100%;
+    }
+
+    .form .checkbox {
+      width: 50%;
+      float: left;
+    }
+
+    .form input[type=submit] {
+      padding: 8px 16px;
+      color: #fff;
+      background-color: #009688;
+      /*padding: 8px 16px;*/
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="form">
+      <h2>信息收集表</h2>
+      <form action="" method="post">
+        <div>
+          <label for="name">姓名</label>
+          <input type="text" id="name" name="name">
+        </div>
+        <div>
+          <label for="qq">QQ</label>
+          <input type="text" id="qq" name="qq">
+        </div>
+        <div>
+          <label for="comment">要说的话</label>
+          <textarea name="comment" id="comment" cols="30" rows="4"></textarea>
+        </div>
+        <div class="clear">
+          <div class="checkbox">
+            <input id="milk" name="drink" type="checkbox" checked="checked">
+            <label for="milk">Milk</label>
+            <br>
+            <input id="sugar" name="drink" type="checkbox">
+            <label for="sugar">Sugar</label>
+            <br>
+            <input id="lemon" name="drink" type="checkbox">
+            <label for="lemon">Lemon</label>
+          </div>
+          <div class="checkbox">
+            <input id="male" type="radio" name="sex" value="male" checked="">
+            <label for="male">Male</label>
+            <br>
+            <input id="female" type="radio" name="sex" value="female">
+            <label for="female">Female</label>
+          </div>
+        </div>
+
+        <div>
+          <input type="submit" value="提交">
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dialog</title>
+  <style>
+    .content {
+        position: relative;
+        /*日常相对定位*/
+        width: 150px;
+        height: 36px;
+        border: black 1px solid;
+        border-radius: 5px;
+        background: rgba(245, 245, 245, 1);
+    }
+    
+    .content:before,
+    .content:after {
+        content: "";
+        display: block;
+        position: absolute;
+        /*日常绝对定位*/
+        top: 8px;
+        width: 0;
+        height: 0;
+        border: 6px transparent solid;
+    }
+    /**
+     * 通过border的定位来实现左边小三角的边框效果
+     * ::after的left值要比::before更小 同时具有更低的z-index
+     * 因此会被::before覆盖只显示出边框效果
+     * @type {[type]}
+     */
+    
+    .content:before {
+        left: -11px;
+        border-right-color: rgba(245, 245, 245, 1);
+        z-index: 1;
+    }
+    
+    .content:after {
+        left: -12px;
+        border-right-color: rgba(0, 0, 0, 1);
+        z-index: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content"></div>
+  
+</body>
+
+</html>

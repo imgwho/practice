@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+  <title>ss</title>
+  <style type="text/css">
+    body {
+      font-family: "宋体";
+      font-size: 12px;
+    }
+
+    .menu {
+      height: 30px;
+      background: #e6e6e6;
+      margin-left: 10px;
+    }
+
+    .menu a {
+      text-decoration: none;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      list-style: none;
+      float: left;
+      width: 90px;
+      overflow: visible;
+      cursor: pointer;
+    }
+
+    ul.level0 {
+      height: 30px;
+      overflow: visible;
+    }
+
+    ul.level1,
+    ul.level2,
+    ul.level3 {
+      width: 90px;
+      display: none;
+    }
+
+    ul.level2,
+    ul.level3 {
+      margin: -28px 0 0 90px;
+    }
+
+    ul.level0>li {
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background: #999;
+    }
+
+    ul.level1>li,
+    ul.level2>li,
+    ul.level3>li {
+      height: 28px;
+      line-height: 28px;
+      background: #bbb;
+    }
+
+    ul.level0>li:hover {
+      background: #ccc;
+    }
+
+    ul.level1>li:hover,
+    ul.level2>li:hover,
+    ul.level3>li:hover {
+      background: #ddd;
+    }
+
+    ul.level0>li.imyeah:hover>ul,
+    ul.level1>li.imyeah:hover>ul,
+    ul.level2>li.imyeah:hover>ul,
+    ul.level3>li.imyeah:hover>ul {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu">
+    <ul class="level0">
+      <li class="imyeah"> <a href="#">immenu0</a>
+        <ul class="level1">
+          <li> <a href="#">imdropmenu00</a> </li>
+          <li class="imyeah"> <a href="#">imdropmenu01</a>
+            <ul class="level2">
+              <li class="imyeah"> <a href="#">imdropmenu010</a>
+                <ul class="level3">
+                  <li> <a href="#">imdropmenu0100</a> </li>
+                  <li> <a href="#">imdropmenu0101</a> </li>
+                </ul>
+              </li>
+              <li> <a href="#">imdropmenu011</a> </li>
+              <li> <a href="#">imdropmenu012</a> </li>
+            </ul>
+          </li>
+          <li> <a href="#">imdropmenu02</a> </li>
+          <li> <a href="#">imdropmenu03</a> </li>
+          <li> <a href="#">imdropmenu04</a> </li>
+        </ul>
+      </li>
+      <li class="imyeah"> <a href="#" class="top_link">immenu1</a>
+        <ul class="level1">
+          <li class="imyeah"> <a href="#">imdropmenu10</a>
+            <ul class="level2">
+              <li> <a href="#">imdropmenu100</a> </li>
+              <li class="imyeah"> <a href="#">imdropmenu101</a>
+                <ul class="level3">
+                  <li> <a href="#">imdropmenu1010</a> </li>
+                  <li> <a href="#">imdropmenu1011</a> </li>
+                </ul>
+              </li>
+              <li> <a href="#">imdropmenu102</a> </li>
+            </ul>
+          </li>
+          <li> <a href="#">imdropmenu11</a> </li>
+          <li> <a href="#">imdropmenu12</a> </li>
+          <li> <a href="#">imdropmenu13</a> </li>
+          <li> <a href="#">imdropmenu14</a> </li>
+          <li> <a href="#">imdropmenu15</a> </li>
+        </ul>
+      </li>
+      <li class="imyeah"> <a href="#" class="top_link">immenu2</a>
+        <ul class="level1">
+          <li> <a href="#">imdropmenu20</a> </li>
+          <li> <a href="#">imdropmenu21</a> </li>
+        </ul>
+      </li>
+      <li class="imyeah"> <a href="#" class="top_link">immenu3</a>
+        <ul class="level1">
+          <li> <a href="#">imdropmenu30</a> </li>
+          <li> <a href="#">imdropmenu31</a> </li>
+          <li> <a href="#">imdropmenu32</a> </li>
+        </ul>
+      </li>
+      <li> <a href="#" class="top_link">immenu4</a> </li>
+    </ul>
+  </div>
+</body>
+
+</html>

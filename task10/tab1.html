@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px 50px;
+    }
+    /*CSS Tabs style*/
+
+    #cssTabs {
+      position: relative;
+      width: 600px;
+      height: 290px;
+      margin: 0 auto;
+    }
+
+    .tabHead {
+      font-weight: normal;
+      padding: 5px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border: 1px solid #000;
+      border-width: 1px 1px 0;
+      -moz-border-radius: 5px 5px 0 0;
+      -webkit-border-radius: 5px 5px 0 0;
+      border-radius: 5px 5px 0 0;
+      width: 140px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .tabContent {
+      padding: 10px 20px;
+      background: #fff;
+      border: 1px solid #000;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      height: 230px;
+      width: 100%;
+      opacity: 0;
+      filter: alpha(opacity=0);
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      -webkit-transition: opacity 0.5s ease-in 0.218s;
+      -moz-transition: opacity 0.5s ease-in 0.218s;
+      -o-transition: opacity 0.5s ease-in 0.218s;
+      -ms-transition: opacity 0.5s ease-in 0.218s;
+      transition: opacity 0.5s ease-in 0.218s;
+    }
+
+    #tab1 .tabHead {
+      z-index: 3;
+    }
+
+    #tab2 .tabHead {
+      left: 155px;
+      z-index: 1;
+    }
+
+    #tab3 .tabHead {
+      left: 310px;
+      z-index: 1;
+    }
+
+    #tab1 .tabContent {
+      z-index: 2;
+      opacity: 1;
+      filter: alpha(opacity=100);
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+
+    #tab1:hover h3,
+    #tab1:focus h3,
+    #tab1:active h3,
+    #tab2:hover h3,
+    #tab2:focus h3,
+    #tab2:active h3,
+    #tab3:hover h3,
+    #tab3:focus h3,
+    #tab3:active h3 {
+      z-index: 4;
+      font-weight: bold;
+    }
+
+    #tab1:hover .tabContent,
+    #tab1:focus .tabContent,
+    #tab1:active .tabContent,
+    #tab2:hover .tabContent,
+    #tab2:focus .tabContent,
+    #tab2:active .tabContent,
+    #tab3:hover .tabContent,
+    #tab3:focus .tabContent,
+    #tab3:active .tabContent {
+      z-index: 3;
+      opacity: 1;
+      filter: alpha(opacity=100);
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cssTabs">
+    <div id="tab1" class="uiTab">
+      <h3 class="tabHead">Header for Tab1</h3>
+      <div class="tabContent">Content for Tab1</div>
+    </div>
+
+    <div id="tab2" class="uiTab">
+      <h3 class="tabHead">Header for Tab2</h3>
+      <div class="tabContent">Content for Tab2</div>
+    </div>
+
+    <div id="tab3" class="uiTab">
+      <h3 class="tabHead">Header for Tab3</h3>
+      <div class="tabContent">Content for Tab3</div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

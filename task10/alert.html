@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>alert</title>
+  <style>
+    .content {
+      width: 600px;
+      /*设置对象上下间距为0，左右自动 即居中效果*/
+      margin: 0 auto;
+      /*border: 2px solid blue;*/
+    }
+
+    .alert {
+      margin-top: 30px;
+      width: 600px;
+      height: 104px;
+      color: #fff;
+      padding: 1px 16px;
+      line-height: 1.5;
+      border-radius: 3px;
+      /*border: 2px solid black;*/
+    }
+
+    span {
+      float: right;
+      font-size: 24px;
+    }
+
+    p {
+      margin-bottom: 30px;
+    }
+
+    .wish {
+      background-color: #4CAF50;
+    }
+
+    .notice {
+      background-color: #2196F3;
+    }
+
+    .fault {
+      background-color: #f44336;
+    }
+
+    .warn {
+      background-color: #ff9800;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="alert wish">
+      <span class="close">×</span>
+      <h2>恭喜你</h2>
+      <p>获得本周学霸，继续加油吧</p>
+    </div>
+    <div class="alert notice">
+      <span class="close">×</span>
+      <h2>通知</h2>
+      <p>晚上上课，不要忘了</p>
+    </div>
+    <div class="alert fault">
+      <span class="close">×</span>
+      <h2>天啊</h2>
+      <p>竟然几天没做任务</p>
+    </div>
+    <div class="alert warn">
+      <span class="close">×</span>
+      <h2>警告</h2>
+      <p>学如逆水行舟，不进则退</p>
+    </div>
+  </div>
+</body>
+
+</html>
