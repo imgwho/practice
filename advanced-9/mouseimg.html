@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="task22-3" />
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+  
+  </style>
+</head>
+<body>
+
+<ul class="ct">
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg">鼠标放置查看图片1</li>
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg">鼠标放置查看图片2</li>
+    <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview"></div>
+<script>
+var ct = document.querySelector('.ct')
+    var preview = document.querySelector('.img-preview')
+    ct.addEventListener('mouseover',function(e){
+        var image = document.createElement('img')
+        image.src = e.target.dataset.img
+        preview.appendChild(image)
+    })
+    ct.addEventListener('mouseout',function(e){
+        preview.innerHTML = ''
+    })
+  
+  //也可以考虑不使用循环，用事件代理把事件绑定到父元素上，想想怎么实现
+</script>
+
+
+</body>
+</html>
