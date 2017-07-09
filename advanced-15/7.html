@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <style>
+
+
+    .scroll-height {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      width: 280px;
+      height: 170px;
+      border: 1px solid black;
+    }
+
+    .changecolor {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      margin: 50px 0;
+    }
+
+    .changecolor div {
+      border: 1px solid black;
+      margin-top: 20px;
+    }
+
+    .select {
+      margin: 100px 0;
+    }
+
+    .red {
+      background: red;
+    }
+
+    .blue {
+      border: 1px solid blue;
+    }
+  </style>
+
+</head>
+
+<body>
+  <p>当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色:</p>
+  <button id='btn'>按钮</button>
+  <div class="scroll-height">
+    垂直滚动距离为:0px
+  </div>
+  <p>当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色:</p>
+  <div class="changecolor">
+  </div>
+  <p>当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</p>
+  <input id='inp' type="text">
+  <div class="select">
+    <p>当选择 select 后，获取用户选择的内容:</p>
+    今天的天气怎么样？
+    <select class="select-wea">
+        <option value="好">好</option>
+        <option value="不好">不好</option>
+        <option value="很好">很好</option>
+    </select>
+    <p class="select-wea-val">您选择的是：</p>
+  </div>
+
+
+  <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+  <script>
+    //点击让按钮变色两次
+    function fn() {
+      $('#btn').css({
+        background: 'blue'
+      })
+    }
+    $('#btn').on('click', function () {
+      $('#btn').css({
+        background: 'red'
+      })
+      setTimeout('fn()', 600)
+    });
+    //获取窗口垂直滚动距离
+    $(window).on('scroll', function () {
+      $('.scroll-height').text('垂直滚动距离为:' + $(window).scrollTop() + 'px')
+    })
+
+    //改变div背景色
+    $('.changecolor').on('mouseover', function () {
+      $(this).addClass('red')
+    });
+    $('.changecolor').on('mouseout', function () {
+      $(this).removeClass('red')
+    })
+    //输入框
+    $('#inp').on('focus', function () {
+      $(this).addClass('blue')
+    })
+    $('#inp').on('blur', function () {
+      $(this).removeClass('blue');
+      console.log($(this).val())
+    })
+    $('#inp').on('change', function () {
+      var a = $(this).val()
+      $(this).val(a.toLocaleUpperCase())
+    })
+    //选择项
+    $('.select-wea').on('change', function () {
+      $('.select-wea-val').text('您选择的是：' + $(this).val())
+    })
+  </script>
+</body>
+
+</html>
