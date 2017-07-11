@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>代码库 - JQuery带箭头图片左右滚动</title>
+  <meta name="keywords" content="JQuery,带箭头,图片滚动,左右滚动" />
+  <meta name="description" content="JQuery带箭头图片左右滚动是一款基于JQuery新浪新版带箭头的图片左右滚动代码，有点类似幻灯片的样式，当然也可以作为幻灯片使用。" />
+  <meta name="author" content="代码库" />
+  <meta name="Copyright" content="代码库" />
+  <link rel="stylesheet" href="/static/index/css/head.css" />
+  <link rel="stylesheet" href="/static/public/dmaku/ue.css" />
+  <link rel="stylesheet" href="/static/index/css/demo_jquery.css" />
+  <script type="text/javascript" src="/static/public/jquery.js"></script>
+
+</head>
+<style>
+
+</style>
+
+<body style="overflow-y:hidden">
+  <div class="header">
+    <ul class="navbar ov">
+      <!-- <a class="fl" class="" href="/" title=""><img src="/static/index/images/logo.png"></a> -->
+      <li><a data-id="preview-pc" class="posti arve" href="javascript:;" class=""><i class="ue">&#xe62d;</i></a></li>
+      <li><a data-id="preview-portrait" class="posti" href="javascript:;" class=""><i class="ue">&#xe62e;</i></a></li>
+      <li><a data-id="preview-landscape" class="posti" href="javascript:;" class=""><i class="ue">&#xe630;</i></a></li>
+      <li><a data-id="preview-phone" class="posti" id="phone" href="javascript:;" class=""><i class="ue">&#xe62f;</i></a></li>
+      <li><a data-id="preview-phone2" class="posti" href="javascript:;" class=""><i class="ue">&#xe6a7;</i></a></li>
+      <li><a class="ma" href="javascript:kuanghuan();" class=""><i class="ue">&#xe631;</i>&nbsp;扫码预览
+				<div class="erl">
+					<img id="ma" src="">
+					<p>扫一扫，直接在手机上打开</p>
+				</div>
+				</a>
+      </li>
+      <span>JQuery带箭头图片左右滚动</span>
+      <li class="fr"><a title="移除框架" href="javascript:cols();" class=""><i class="ue">&#xe632;</i></a></li>
+    </ul>
+  </div>
+  <div class="preview-portrait-block" style="display: block;">
+    <div class="preview-pc podmk">
+      <div class="preview-top">
+        <i></i>
+        <span></span>
+      </div>
+      <div class="preview-home"></div>
+      <div class="preview-view">
+        <iframe id="iframe" src="/demo/jquery/2017070553545555" frameborder="0" scrolling="yes"></iframe>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script>
+  var height = $(".header").height();
+  $(".preview-portrait-block").css({
+    "padding-top": height
+  });
+  $(".preview-nav-list-block span").click(function () {
+    $(".preview-nav-list-block span").removeClass();
+    $(this).addClass('active');
+    if ("jquery" == "kaiyuan") {
+      $("iframe").attr('src', $(this).data('src'));
+    } else {
+      $("iframe").attr('src', "/demo/jquery/2017070553545555/" + $(this).data('src'));
+    }
+
+  })
+  $(".posti").click(function () {
+
+    $(".posti").removeClass("arve");
+    $(this).addClass("arve");
+
+
+    if ($(this).data('id') == "preview-pc") {
+      $("body").css({
+        "overflow-y": "hidden"
+      });
+      //$(".bakt_dem").removeClass().addClass("bakt_dem pc");
+      //		var ik = $(".ik").removeClass("ip_p");
+      $("iframe").attr("id", "iframe");
+      $("#iframe").height($(window).height() - height);
+    } else {
+      $("body").css({
+        "overflow-y": "inherit"
+      });
+      $("iframe").attr("id", "");
+      $("iframe").attr("style", "");
+      //		tok.removeClass();
+      //		tok.find("div").addClass("ip_p");
+      //		$(".ik").find("iframe").attr("id","iframe_dem");
+      //		tok.addClass("bakt_dem "+$(this).data('id'));
+    }
+    $(".podmk").removeClass().addClass($(this).data('id') + ' podmk');
+  })
+  $("#iframe").height($(window).height() - height);
+  $(window).resize(function () {
+    $("#iframe").height($(window).height() - height);
+  });
+
+  function cols() {
+    location.href = "/demo/jquery/2017070553545555";
+  }
+  $("#ma").attr('src',
+    "http://pan.baidu.com/share/qrcode?w=160&h=150&url=http://www.dmaku.com/demo/jquery/2017070553545555");
+</script>
+
+</html>

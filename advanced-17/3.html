@@ -1,0 +1,173 @@
+<html>
+<script src="http://kejian.jirengu.com/static/js/jquery-1.11.1.min.js"></script>
+<style>
+  body {
+    background-color: #dddddd;
+  }
+
+  * {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  .main {
+    position: relative;
+    width: 500px;
+    height: 350px;
+    margin: 40px auto;
+  }
+
+  .myslide {
+    float: left;
+    position: absolute;
+    overflow: hidden;
+    width: 500px;
+    height: 350px;
+  }
+
+  .myslidetwo {
+    position: absolute;
+    overflow: hidden;
+    width: 2000px;
+  }
+
+  .myslidetwo img {
+    float: left;
+    width: 500px;
+    height: 350px;
+  }
+
+  .label {
+    position: absolute;
+    bottom: 15px;
+    left: 210px;
+    width: 200px;
+  }
+
+  .label li {
+    float: left;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    margin-right: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .label li.current {
+    background: #0f0;
+  }
+
+  .arrows {
+    position: absolute;
+    left: 0px;
+    top: 120px;
+    color: #666;
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .arrows a {
+    background: rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    width: 30px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+  }
+
+  .arrows a:hover {
+    color: #fff;
+  }
+
+  .arrows .pre {
+    margin-right: 420px;
+  }
+</style>
+
+<body>
+
+  <div class="main">
+    <div class="myslide">
+      <ul class="myslidetwo">
+        <li><img src="http://www.itxueyuan.org/uploads/javascript/demo/lunbo/zuoyou_title/images/1.jpg" /></li>
+        <li> <img src="http://www.itxueyuan.org/uploads/javascript/demo/lunbo/zuoyou_title/images/2.jpg" /></li>
+        <li><img src="http://www.itxueyuan.org/uploads/javascript/demo/lunbo/zuoyou_title/images/3.jpg" /></li>
+        <li><img src="http://www.itxueyuan.org/uploads/javascript/demo/lunbo/zuoyou_title/images/3.jpg" /></li>
+      </ul>
+      <p class="arrows">
+        <a class="pre">
+          <</a>
+            <a class="next">></a>
+      </p>
+      <ol class="label">
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ol>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function () {
+      var _now = 0;
+      var oul = $(".myslidetwo");
+      var numl = $(".label li");
+      var wid = $(".myslide").eq(0).width();
+      //数字图标实现
+      numl.click(function () {
+        var index = $(this).index();
+        $(this).addClass("current").siblings().removeClass();
+        oul.animate({
+          'left': -wid * index
+        }, 500);
+      })
+      //左右箭头轮播
+      $(".pre").click(function () {
+        if (_now >= 1) _now--;
+        else _now = 3;
+        ani();
+      });
+      $(".next").click(function () {
+        if (_now == numl.size() - 1) {
+          _now = 0;
+        } else _now++;
+        ani();
+      });
+      //动画函数
+      function ani() {
+        numl.eq(_now).addClass("current").siblings().removeClass();
+        oul.animate({
+          'left': -wid * _now
+        }, 500);
+      }
+      //以下代码如果不需要自动轮播可删除
+      //自动动画
+      // var _interval = setInterval(showTime, 2000);
+
+      // function showTime() {
+      //   if (_now == numl.size() - 1) {
+      //     _now = 0;
+      //   } else _now++;
+      //   ani();
+      // }
+      //鼠标停留在画面时停止自动动画，离开恢复
+      $(".myslide").mouseover(function () {
+        clearTimeout(_interval);
+      });
+      $(".myslide").mouseout(function () {
+        _interval = setInterval(showTime, 2000);
+      });
+    });
+  </script>
+</body>
+
+</html>
