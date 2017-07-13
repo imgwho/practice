@@ -1,0 +1,14 @@
+{
+  "name": "senior-5",
+  "version": "1.0.0",
+  "description": "webpack test",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "imgwho",
+  "license": "MIT"
+}
