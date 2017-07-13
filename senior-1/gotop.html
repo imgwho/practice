@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>go-Top</title>
+  <style type="text/css">
+    .ct {
+      height: 1200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ct"></div>
+  <script src="http://kejian.jirengu.com/static/js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript">
+    function GoTop($ct) {
+      this.$ct = $ct
+      this.target = $('<button class="btn">回到顶部</button>')
+      this.target.css({
+        position: 'fixed',
+        right: '50px',
+        bottom: '50px',
+        display: 'none'
+      })
+      this.createNode()
+      this.bindEvent()
+    }
+    GoTop.prototype = {
+      createNode: function () {
+        this.$ct.append(this.target)
+      },
+      bindEvent: function () {
+        var _this = this
+        $(window).on('scroll', function () {
+          if ($(window).scrollTop() > 100) {
+            _this.target.css('display', 'block')
+          } else {
+            _this.target.css('display', 'none')
+          }
+        })
+        this.target.on('click', function () {
+          $(window).scrollTop(0)
+        })
+      }
+    }
+    var goTop = new GoTop($('.ct'))
+    goTop
+  </script>
+</body>
+
+</html>
