@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .box {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background: url(http://book.jirengu.com/jirengu-inc/js-works/css3/bg.jpg) center center no-repeat;
+      background-size: cover;
+    }
+
+    .box::before {
+      content: "";
+      width: 50%;
+      display: block;
+      position: absolute;
+      height: 100%;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(25, 255, 255, 0.5));
+    }
+
+    .box::after {
+      content: "";
+      width: 50%;
+      display: block;
+      position: absolute;
+      height: 100%;
+      right: 0;
+      background: linear-gradient(to right, rgba(255, 255, 5, 0.5), rgba(255, 255, 255, 0.1));
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+
+  <style>
+    div {
+      height: 50px;
+      width: 50px;
+      background-color: royalblue;
+      margin: 30px;
+      border: 1px solid #000;
+    }
+
+    .fillet {
+      border-radius: 5px;
+    }
+
+    .cir {
+      border-radius: 50%;
+    }
+
+    .shadow {
+      box-shadow: 10px 10px 10px;
+    }
+
+    .trans {
+      transform: rotate(30deg) translate(20px, -10px) scale(1.3)
+    }
+
+    .pers {
+      transform: perspective(400px) rotateX(60deg);
+    }
+
+    .gradient {
+      background: linear-gradient(to right, #222, #999);
+    }
+
+    .exc {
+      transition: 1s;
+    }
+
+    .exc:hover {
+      width: 300px;
+    }
+
+    .animation {
+      animation: move 2s infinite;
+    }
+
+    @keyframes move {
+      0% {
+        margin-left: 0;
+      }
+      100% {
+        margin-left: 100px;
+      }
+      10% {
+        margin-left: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="fillet"></div>
+  <div class="cir"></div>
+  <div class="shadow"></div>
+  <div class="trans"></div>
+  <div class="pers"></div>
+  <div class="gradient"></div>
+  <div class="exc">鼠标移上来</div>
+  <div class="animation"></div>
+</body>
+
+</html>

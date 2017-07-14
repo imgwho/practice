@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    @media (min-width:1200px) {
+      body {
+        background: red;
+      }
+    }
+
+    @media (min-width:900px) and (max-width:1200px) {
+      body {
+        background: green;
+      }
+    }
+
+    @media (min-width:600px) and (max-width:900px) {
+      body {
+        background: yellow;
+      }
+    }
+
+    @media (max-width:600px) {
+      body {
+        background: grey;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <p>在页面宽度> 1200px 时页面背景为红色 </p>
+  <p>在页面1200px>=宽度> 900px 时页面背景为绿色</p>
+  <p>在页面900px>=宽度> 600px 时页面背景为黄色</p>
+  <p>宽度
+    <=600px 背景为灰色</p>
+</body>
+
+</html>
