@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>vue todo</title>
+  <style>
+    #app {
+      padding: 5px 10px;
+      margin: 0 auto;
+      width: 600px;
+    }
+
+    .time {
+       width: 100px;
+       margin: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <div class="newTask">
+      <input type="text" v-model="newTodo" @keypress.enter="addTodo">
+    </div>
+    <ol class="todos">
+      <li v-for="todo in todoList">
+        <input type="checkbox" v-model="todo.done">{{todo.title}}
+
+        <span v-if="todo.done">已完成</span>
+        <span v-else>未完成</span>
+        <span class="time">创建时间</span>
+        <span>  {{todo.createdAt}}  </span>
+
+        <button @click="removeTodo(todo)">x</button>
+      </li>
+    </ol>
+  </div>
+
+  <script src="bundle.js"></script>
+</body>
+
+</html>
