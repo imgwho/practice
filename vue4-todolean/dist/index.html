@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>vue todo</title>
+  <style>
+    #app {
+      padding: 5px 10px;
+      margin: 0 auto;
+      width: 600px;
+    }
+
+    .time {
+      width: 100px;
+      margin: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <section id="signInAndSignUp" v-if="!currentUser">
+      <div>
+        <label>
+          <input type="radio" name="type" v-model="actionType" value="signUp">注册
+        </label>
+        <label>
+          <input type="radio" name="type" v-model="actionType"  value="login">登录
+        </label>
+      </div>
+      <div class="signUp" v-if="actionType=='signUp'">
+        <form @submit.prevent=signUp>
+          <div class="formRow">
+            用户名<input type="text" v-model="formData.username">
+          </div>
+          <div class="formRow">
+            密码<input type="text" v-model="formData.password">
+          </div>
+          <div class="formActions">
+            <input type="submit" value="注册">
+          </div>
+        </form>
+      </div>
+      <div class="login" v-if="actionType ==='login'">
+        <form @submit.prevent="login">
+          <div class="formRow">
+            用户名<input type="text" v-model="formData.username">
+          </div>
+          <div class="formRow">
+            密码<input type="text" v-model="formData.password">
+          </div>
+          <div class="formActions">
+            <input type="submit" value="登录">
+          </div>
+        </form>
+      </div>
+    </section>
+    <section id="todo" v-if="currentUser">
+      <p><span>欢迎您：{{currentUser.username}}</span><button @click="logout">登出</button></p>
+      <div class="newTask">
+        <input type="text" v-model="newTodo" @keypress.enter="addTodo">
+      </div>
+      <ol class="todos">
+        <li v-for="todo in todoList">
+          <input type="checkbox" v-model="todo.done">{{todo.title}}
+
+          <span v-if="todo.done">已完成</span>
+          <span v-else>未完成</span>
+          <span class="time">创建时间</span>
+          <span>  {{todo.createdAt}}  </span>
+
+          <button @click="removeTodo(todo)">x</button>
+        </li>
+      </ol>
+    </section>
+  </div>
+
+  <script src="bundle.js"></script>
+</body>
+
+</html>
