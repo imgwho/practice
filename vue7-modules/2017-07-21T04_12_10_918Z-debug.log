@@ -1,0 +1,39 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\imgwh\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'dev' ]
+2 info using npm@5.3.0
+3 info using node@v6.11.0
+4 verbose run-script [ 'predev', 'dev', 'postdev' ]
+5 info lifecycle vue7-modules@1.0.0~predev: vue7-modules@1.0.0
+6 info lifecycle vue7-modules@1.0.0~dev: vue7-modules@1.0.0
+7 verbose lifecycle vue7-modules@1.0.0~dev: unsafe-perm in lifecycle true
+8 verbose lifecycle vue7-modules@1.0.0~dev: PATH: C:\Users\imgwh\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;E:\practice\jirengu\vue7-modules\node_modules\.bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\imgwh\bin;D:\Program Files\ImageMagick-7.0.1-Q16;D:\Program Files\Python;D:\Program Files\Python\Scripts;C:\Program Files\Docker\Docker\Resources\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\jdk1.8.0_102\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\libexec\git-core;C:\Mongodb\bin;C:\Program Files\nodejs;C:\Users\imgwh\AppData\Local\Microsoft\WindowsApps;D:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\imgwh\AppData\Local\Microsoft\WindowsApps;C:\Users\imgwh\AppData\Roaming\npm
+9 verbose lifecycle vue7-modules@1.0.0~dev: CWD: E:\practice\jirengu\vue7-modules
+10 silly lifecycle vue7-modules@1.0.0~dev: Args: [ '/d /s /c', 'node build/dev-server.js' ]
+11 silly lifecycle vue7-modules@1.0.0~dev: Returned: code: 1  signal: null
+12 info lifecycle vue7-modules@1.0.0~dev: Failed to exec dev script
+13 verbose stack Error: vue7-modules@1.0.0 dev: `node build/dev-server.js`
+13 verbose stack Exit status 1
+13 verbose stack     at EventEmitter.<anonymous> (C:\Users\imgwh\AppData\Roaming\npm\node_modules\npm\lib\utils\lifecycle.js:289:16)
+13 verbose stack     at emitTwo (events.js:106:13)
+13 verbose stack     at EventEmitter.emit (events.js:191:7)
+13 verbose stack     at ChildProcess.<anonymous> (C:\Users\imgwh\AppData\Roaming\npm\node_modules\npm\lib\utils\spawn.js:40:14)
+13 verbose stack     at emitTwo (events.js:106:13)
+13 verbose stack     at ChildProcess.emit (events.js:191:7)
+13 verbose stack     at maybeClose (internal/child_process.js:891:16)
+13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+14 verbose pkgid vue7-modules@1.0.0
+15 verbose cwd E:\practice\jirengu\vue7-modules
+16 verbose Windows_NT 10.0.15063
+17 verbose argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\imgwh\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "run" "dev"
+18 verbose node v6.11.0
+19 verbose npm  v5.3.0
+20 error code ELIFECYCLE
+21 error errno 1
+22 error vue7-modules@1.0.0 dev: `node build/dev-server.js`
+22 error Exit status 1
+23 error Failed at the vue7-modules@1.0.0 dev script.
+23 error This is probably not a problem with npm. There is likely additional logging output above.
+24 verbose exit [ 1, true ]
