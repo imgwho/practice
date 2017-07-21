@@ -1,4 +1,4 @@
-# vue6-components
+# vue-resume
 
 > A Vue.js project
 
