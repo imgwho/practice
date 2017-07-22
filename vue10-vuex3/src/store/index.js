@@ -1,7 +1,6 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
 
-
 import objectPath from "object-path"
 import AV from '../lib/leancloud'
 import getAVUser from '../lib/getAVUser'
