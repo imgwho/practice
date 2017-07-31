@@ -14,7 +14,7 @@
         <div v-if="item.type === 'array'">
           <h2>{{$t(`resume.${item.field}._`)}}</h2>
           <div class="subitem" v-for="subitem in resume[item.field]">
-            <button class="button remove small" @click="removeResumeSubfield(item.field, i)">删除</button>
+            <button class="button remove small" @click="removeResumeSubfield(item.field, i)">??</button>
             <div class="resumeField" v-for="(value, key) in subitem">
               <label> {{$t(`resume.${item.field}.${key}`)}}</label>
               <input type="text" :value="value" @input="changeResumeField(`${item.field}.${i}.${key}`, $event.target.value)">
@@ -67,7 +67,7 @@ export default {
       })
     },
     addResumeSubfield(field) {
-      console.log(field)
+      this.$store.commit('addResumeSubfield', {field})
     },
 
     removeResumeSubfield(field, index) {
