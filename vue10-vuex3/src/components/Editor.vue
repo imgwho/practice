@@ -13,8 +13,8 @@
       <li v-for="item in resumeConfig" v-show="item.field === selected">
         <div v-if="item.type === 'array'">
           <h2>{{$t(`resume.${item.field}._`)}}</h2>
-          <div class="subitem" v-for="subitem in resume[item.field]">
-            <button class="button remove small" @click="removeResumeSubfield(item.field, i)">??</button>
+          <div class="subitem" v-for="(subitem,i ) in resume[item.field]">
+            <button class="button remove small" @click="removeResumeSubfield(item.field, i)">remove</button>
             <div class="resumeField" v-for="(value, key) in subitem">
               <label> {{$t(`resume.${item.field}.${key}`)}}</label>
               <input type="text" :value="value" @input="changeResumeField(`${item.field}.${i}.${key}`, $event.target.value)">
