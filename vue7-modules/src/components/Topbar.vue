@@ -52,7 +52,7 @@ export default {
     background: #ddd;
     color: #222;
     &:hover {
-      box-shadow: 1px 1px 1px hsla(0, 0, 0, 0.5)
+      box-shadow: 1px 1px 1px hsla(0, 0, 0, 0.1)
     }
 
     &.btn-primary {
