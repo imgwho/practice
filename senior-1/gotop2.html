@@ -23,36 +23,37 @@
 <script type="text/javascript">
   window.onload = function () {
     var obtn = document.getElementById('btn');
-    var clientHeight = document.documentElement.clientHeight;
-    var timer = null;
-    var isTop = true;
+    var clientHeight = document.documentElement.clientHeight
+    var timer
+    var isTop = true
     //滚动条滚动时触发
     window.onscroll = function () {
-      var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop
       if (osTop > clientHeight) {
-        obtn.style.display = 'block';
+        obtn.style.display = 'block'
       } else {
-        obtn.style.display = 'none';
+        obtn.style.display = 'none'
       }
       if (!isTop) {
-        clearInterval(timer);
+        clearInterval(timer)
       }
-      isTop = false;
+      isTop = false
     }
     //点击返回顶部按钮触发
     obtn.onclick = function () {
-      clearInterval(timer);
+      clearInterval(timer)
       timer = setInterval(function () {
-        var osTop = document.documentElement.scrollTop || document.body.scrollTop;
-        var ispeed = Math.floor(-osTop / 7); //对浮点数向下取整，小于或者等于该参数的最大整数。
-        document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
-        isTop = true;
-        console.log(osTop);
+        var osTop = document.documentElement.scrollTop || document.body.scrollTop
+        var ispeed = Math.floor(-osTop / 7) //对浮点数向下取整，小于或者等于该参数的最大整数。
+        document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed
+        isTop = true
+        console.log(osTop)
         if (osTop == 0) {
-          clearInterval(timer);
+          clearInterval(timer)
         }
       }, 30)
     }
+    
   }
 </script>
 
