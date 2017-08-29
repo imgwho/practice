@@ -1,0 +1,14 @@
+body {
+  background: #ddd;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
