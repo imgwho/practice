@@ -1,5 +1,5 @@
 export function save(key, value) {
-  return window.localStorage.setItem(key, JSON.stringify(vaule))
+  return window.localStorage.setItem(key, JSON.stringify(value))
 
 }
 
