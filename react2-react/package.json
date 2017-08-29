@@ -2,7 +2,7 @@
   "name": "react2-react",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://imgwho.github.com/jirengu/react2-react",
+  "homepage" : "https://imgwho.github.io/jirengu/react2-react",
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
