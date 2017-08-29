@@ -4253,6 +4253,10 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
+normalize.css@^7.0.0:
+  version "7.0.0"
+  resolved "http://registry.npm.taobao.org/normalize.css/download/normalize.css-7.0.0.tgz#abfb1dd82470674e0322b53ceb1aaf412938e4bf"
+
 npm-run-path@^2.0.0:
   version "2.0.2"
   resolved "http://registry.npm.taobao.org/npm-run-path/download/npm-run-path-2.0.2.tgz#35a9232dfa35d7067b4cb2ddf2357b1871536c5f"
@@ -5055,7 +5059,7 @@ react-dev-utils@^4.0.0:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dom@15.6.1, "react-dom@^15 || ^16":
+"react-dom@^15 || ^16", react-dom@^15.6.1:
   version "15.6.1"
   resolved "http://registry.npm.taobao.org/react-dom/download/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
   dependencies:
@@ -5119,7 +5123,7 @@ react-scripts@1.0.12:
   optionalDependencies:
     fsevents "1.1.2"
 
-react@15.6.1, "react@^15 || ^16":
+"react@^15 || ^16", react@^15.6.1:
   version "15.6.1"
   resolved "http://registry.npm.taobao.org/react/download/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
   dependencies:
