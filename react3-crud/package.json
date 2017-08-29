@@ -2,7 +2,7 @@
   "name": "react3-crud",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://imgwho.github.io/jirengu/react2-react/build",
+  "homepage": "https://imgwho.github.io/jirengu/react3-crud/build",
   "dependencies": {
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
