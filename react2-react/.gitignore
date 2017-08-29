@@ -14,7 +14,7 @@ package-lock.json# See https://help.github.com/ignore-files/ for more about igno
 /coverage
 
 # production
-/build
+# /build
 
 # misc
 .DS_Store
