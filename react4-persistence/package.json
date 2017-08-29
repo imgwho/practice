@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://imgwho.github.io/jirengu/react4-persistence/build",
   "dependencies": {
+    "leancloud-storage": "^3.1.1",
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
