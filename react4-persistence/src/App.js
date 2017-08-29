@@ -49,10 +49,13 @@ class App extends Component {
   }
 
 
+  ComponentDidUpdate(){
+    localStore.save('todoList', this.state.todoList)
+  }
+
   toggle(e, todo) {
     todo.status = todo.status === 'cpmpleted' ? '' : 'completed'
     this.setState(this.state)
-    localStore.save('todoList', this.state.todoList)
   }
 
 
@@ -61,7 +64,6 @@ class App extends Component {
       newTodo: event.target.value,
       todoList: this.state.todoList
     })
-    localStore.save('todoList', this.state.todoList)
   }
 
   addTodo(event) {
@@ -75,13 +77,11 @@ class App extends Component {
       newTodo: '',
       todoList: this.state.todoList
     })
-    localStore.save('todoList', this.state.todoList)
   }
 
   delete(event, todo) {
     todo.deleted = true
     this.setState(this.state)
-    localStore.save('todoList', this.state.todoList)
   }
 }
 
