@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>nav</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    .clearfix::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .back {
+      background: black;
+      color: white;
+    }
+    .wrap {
+      width: 1000px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      background: red;
+      float: left;
+    }
+
+    .menu {
+      border: 1px solid red;
+      float: left;
+      margin-left: 50px;
+    }
+
+    .menu>li {
+      border: 1px solid green;
+      float: left;
+      width: 110px;
+      text-align: center;
+      padding: 18px 0;
+    }
+
+    .actions {
+      text-align: center;
+      border: 1px solid black;
+      float: right;
+      width: 150px;
+      padding: 18px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="back">
+    <div class="wrap clearfix">
+      
+          <div class="logo">
+      
+          </div>
+          <ul class="menu clearfix">
+            <li>导航1</li>
+            <li>导航2</li>
+            <li>导航3</li>
+            <li>导航4</li>
+            <li>导航5</li>
+            <li>导航6</li>
+          </ul>
+      
+          <div class="actions">
+            <a href="#">个人中心</a>
+            <a href="#">购物车</a>
+          </div>
+        </div>
+  </div>
+</body>
+
+</html>
