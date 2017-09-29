@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>flybird</title>
+  <style>
+  header,footer{
+    min-height: 100px;
+    text-align: center;
+    line-height: 100px;
+    clear: both;
+    background:#aaa;
+  }
+  .wrap{
+    display: flex;
+  }
+  main{
+    flex-grow:1;
+    background:red;
+    height:100px;
+  }
+  .wrap nav,.wrap side{
+    flex:0 0 200px;
+    background:green;
+    height:100px;
+  }
+  .wrap side{
+    order:-1;
+  }
+  </style>
+</head>
+
+<body>
+  <header>
+    我来组成头部
+  </header>
+  <div class="wrap">
+    <main>
+      我是主要内容，优先加载
+    </main>
+    <nav>
+      我是导航栏(固定宽度)
+    </nav>
+    <side>
+      我是侧边栏,我出现在左边(固定宽度)
+    </side>
+  </div>
+  <footer>
+    我来组成页脚
+  </footer>
+</body>
+
+</html>
