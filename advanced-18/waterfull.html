@@ -6,44 +6,54 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>waterfull</title>
   <style>
-    .images {position: relative;width: 1080px;margin: 0 auto}
-    .images > img {width: 200px}
+    .images {position: relative;width: 1080px;margin: 0 auto;}
+    .images > img {width: 200px;}
   </style>
 </head>
 <body>
   <div class="images">
   </div>
   <script>
-    var obj = {'index0': 0,'index1': 0,'index2': 0,'index3': 0,'index4': 0};
+    var obj = {'index0': 0,'index1': 0,'index2': 0,'index3': 0,'index4': 0}
+    var index = 0
     window.onload = function() {
-      var i = 0;while(i++ < 50) renderImage(appendImg);
+      getImages(50, index++)
     }
     window.onscroll = function() {
-      var doc = document.documentElement;
-      var position = doc.clientHeight + doc.scrollTop;
+      var doc = document.documentElement
+      var position = doc.clientHeight + doc.scrollTop
       if (position >= Math.min.apply(null, Object.values(obj))) {
         setTimeout(function() {
-          var i = 0;while(i++ < 10) renderImage(appendImg);
-        }, 500);
+          getImages(20, index++)
+        }, 500)
       }
     }
-    function renderImage(callback) {
-      var img = new Image();
-      img.src = `https://dummyimage.com/${(100 + Math.random() * 200)|0}x${(100 + Math.random() * 200)|0}`;
+
+    function getImages(number, index) {
+      var url = `https://gank.io/api/data/福利/${number}/${index}`
+      fetch(url).then(res => res.json()).then(res => {
+        res.results.map(info => {
+          renderImage(info.url, appendImg)
+        })
+      })
+    }
+    function renderImage(url, callback) {
+      var img = new Image()
+      img.src = url
       img.onload = function() {
-        callback && callback({width: img.width,height: img.height}, img);
+        callback && callback({width: img.width,height: img.height}, img)
       }
     }
     function appendImg(info, target) {
-      var images = document.querySelector('.images');
-      var len = document.querySelectorAll('.images > img').length;
-      var minNumber = Math.min.apply(null, Object.values(obj));
-      var index = Object.values(obj).indexOf(minNumber);
-      target.style.position = 'absolute';
-      target.style.left = index * 220 + 'px';
-      target.style.top = `${Math.min.apply(null, Object.values(obj))}px`;
-      obj[`index${index}`] = obj[`index${index}`] + (200 * (info.height / info.width)) + 20;
-      images.appendChild(target);
+      var images = document.querySelector('.images')
+      var len = document.querySelectorAll('.images > img').length
+      var minNumber = Math.min.apply(null, Object.values(obj))
+      var index = Object.values(obj).indexOf(minNumber)
+      target.style.position = 'absolute'
+      target.style.left = index * 220 + 'px'
+      target.style.top = `${Math.min.apply(null, Object.values(obj))}px`
+      obj[`index${index}`] = obj[`index${index}`] + (200 * (info.height / info.width)) + 20
+      images.appendChild(target)
     }
   </script>
 </body>
