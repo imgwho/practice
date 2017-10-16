@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>barrel</title>
+  <style>
+    html {
+      background-color: rgba(0, 0, 0, .2)
+    }
+
+    .images {
+      width: 100%;
+      overflow: hidden;;
+      font-size: 0
+    }
+
+    .images>img {
+      display: inline-block;
+      border-radius: 4px;
+      box-shadow: 0 0 6px 2px rgba(0, 0, 0, .5);
+      transform: scale(.95);
+    }
+
+    .images>img:hover {
+      transform: scale(2);
+      position: relative;
+      z-index: 999;
+      transition: all 3s;
+    }
+
+    .loading {
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      line-height: 50px;
+      color: #ffffff;
+      background-color: rgba(0, 0, 0, .5);
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="images"></div>
+  <p class="loading" style="display: none">加载中 ...</p>
+  <script>
+    var index = 0,
+      arr = [],
+      imgarr = [],
+      IMG_WIDTH = 200
+
+    window.onload = function () {
+      initialArgs()
+      getImages(50, index++)
+    }
+
+    window.onscroll = function () {
+      var doc = document.documentElement
+      var height = document.querySelector('.images').clientHeight
+      var position = doc.clientHeight + doc.scrollTop
+      if (position >= height * 0.75) {
+        getImages(50, index++)
+      }
+    }
+
+    window.onresize = function () {
+      if (/Mobile/.test(window.navigator.userAgent))
+        return false
+      initialArgs()
+      setTimeout(() => getImages(50, index++), 200)
+    }
+
+    function initialArgs() {
+      var images = document.querySelector('.images')
+      images.innerHTML = ''
+      index = 0
+      arr = []
+      imgarr = []
+      if (images.clientWidth <= 800) {
+        IMG_WIDTH = 100
+      } else {
+        IMG_WIDTH = 200
+      }
+    }
+
+    function getImages(number, index) {
+      var url = `https://gank.io/api/data/福利/${number}/${index}`
+      var loading = document.querySelector('.loading')
+      loading.style.display = 'block'
+      fetch(url).then(res => res.json()).then(res => {
+        loading.style.display = 'none'
+        res.results.map(info => {
+          renderImage(info.url, appendImg)
+        })
+      })
+    }
+
+    function renderImage(url, callback) {
+      var img = new Image()
+      img.src = url
+      img.onload = function () {
+        callback({
+          width: img.width,
+          height: img.height
+        }, img)
+      }
+    }
+
+    function appendImg(info, target) {
+      var images = document.querySelector('.images')
+      var wrapperWidth = images.offsetWidth
+      var allWidth = arr.length === 0 ? 0 : arr.reduce((pre, next) => pre + next)
+      var imgWidth = IMG_WIDTH * info.width / info.height
+      if (allWidth + imgWidth > wrapperWidth) {
+        imgarr.map((img, index) => {
+          img.style.width = (wrapperWidth * arr[index] / allWidth) + 'px'
+          images.appendChild(img)
+        })
+        imgarr = [target]
+        arr = [imgWidth]
+      } else {
+        imgarr.push(target)
+        arr.push(imgWidth)
+      }
+    }
+  </script>
+</body>
+
+</html>
