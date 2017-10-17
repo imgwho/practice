@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>waterfall</title>
+  <title>WaterFall</title>
   <style>
     html {
       background-color: rgba(0, 0, 0, .2)
@@ -21,13 +21,13 @@
       border-radius: 4px;
       box-shadow: 0 0 6px 2px rgba(0, 0, 0, .5);
       position: absolute;
-      border: 1px solid #ffffff;
+      border: 1px solid #ffffff
     }
 
     .images>img:hover {
       transform: scale(2);
       z-index: 999;
-      transition: all 2s;
+      transition: all 2s
     }
 
     .loading {
@@ -40,50 +40,62 @@
       color: #ffffff;
       background-color: rgba(0, 0, 0, .5);
       margin: 0;
+      visibility: hidden;
+      transition: all 1s
+    }
+
+    .loading-show {
+      visibility: visible;
     }
   </style>
 </head>
 
 <body>
   <div class="images"></div>
-  <p class="loading" style="display: none">加载中 ...</p>
+  <p class="loading">加载中 ...</p>
   <script>
-    var obj, index, IMG_WIDTH
+    var index_object, //记录每一行的高度 tips:加了间距
+      page_index, //记录ajax请求的页数
+      img_initial_width //每个图片的宽度
 
     window.onload = function () {
       initialArgs()
-      getImages(50, index++)
+      getImages(50, page_index++)
     }
 
     window.onresize = function () {
       initialArgs()
-      getImages(50, index++)
+      getImages(50, page_index++)
     }
 
+    /*
+     * 初始化参数
+     * 根据不同设备宽度计算图片宽度和行数
+     */
     function initialArgs() {
       var parent = document.querySelector('.images')
       if (parent.offsetWidth < 880) {
-        IMG_WIDTH = ((parent.offsetWidth - 40) / 3) | 0
-        obj = {
+        img_initial_width = ((parent.offsetWidth - 40) / 3) | 0
+        index_object = {
           'index0': 0,
           'index1': 0,
           'index2': 0
         }
         parent.innerHTML = ''
-        index = 0
+        page_index = 0
       } else if (parent.offsetWidth < 1280) {
-        IMG_WIDTH = ((parent.offsetWidth - 60) / 4) | 0
-        obj = {
+        img_initial_width = ((parent.offsetWidth - 60) / 4) | 0
+        index_object = {
           'index0': 0,
           'index1': 0,
           'index2': 0,
           'index3': 0
         }
         parent.innerHTML = ''
-        index = 0
+        page_index = 0
       } else {
-        IMG_WIDTH = ((parent.offsetWidth - 80) / 5) | 0
-        obj = {
+        img_initial_width = ((parent.offsetWidth - 80) / 5) | 0
+        index_object = {
           'index0': 0,
           'index1': 0,
           'index2': 0,
@@ -91,26 +103,27 @@
           'index4': 0
         }
         parent.innerHTML = ''
-        index = 0
+        page_index = 0
       }
     }
 
     window.onscroll = function () {
       var doc = document.documentElement
       var position = doc.clientHeight + doc.scrollTop
-      if (position >= Math.min.apply(null, Object.values(obj))) {
-        getImages(20, index++)
+      if (position >= Math.min.apply(null, Object.values(index_object))) {
+        getImages(20, page_index++)
       }
     }
 
+    //ajax获取数据
     function getImages(number, index) {
       var url = `https://gank.io/api/data/福利/${number}/${index}`
       var loading = document.querySelector('.loading')
-      loading.style.display = 'block'
+      loading.classList.add('loading-show')
       fetch(url).then(res => res.json()).then(res => {
-        loading.style.display = 'none'
+        loading.classList.remove('loading-show')
         res.results.map(info => {
-          renderImage(info.url, appendImg)
+          renderImage(info.url, appendImg) //传入图片的url 以及 图片加载好后的处理函数
         })
       })
     }
@@ -127,16 +140,15 @@
     }
 
     function appendImg(info, target) {
-      console.log(obj, IMG_WIDTH)
       var images = document.querySelector('.images')
-      var len = document.querySelectorAll('.images > img').length
-      var minNumber = Math.min.apply(null, Object.values(obj))
-      var index = Object.values(obj).indexOf(minNumber)
-      target.style.width = IMG_WIDTH + 'px'
-      target.style.left = index * (IMG_WIDTH + 20) + 'px'
-      target.style.top = `${Math.min.apply(null, Object.values(obj))}px`
-      obj[`index${index}`] = obj[`index${index}`] + (IMG_WIDTH * (info.height / info.width)) + 20
-      images.appendChild(target)
+      var min_height = Math.min.apply(null, Object.values(index_object)) // 找到最小行高
+      var min_height_index = Object.values(index_object).indexOf(min_height) //找到最小行高所在的行
+      target.style.width = img_initial_width + 'px'
+      target.style.left = min_height_index * (img_initial_width + 20) + 'px' //通过所在行确定left值
+      target.style.top = `${min_height}px` //最小值赋给元素
+      index_object[`index${min_height_index}`] =
+        index_object[`index${min_height_index}`] + (img_initial_width * (info.height / info.width)) + 20 //记录改变后当前的行高
+      images.appendChild(target) //将图片渲染到页面
     }
   </script>
 </body>

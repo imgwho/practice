@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>barrel</title>
+  <title>木桶布局</title>
   <style>
     html {
       background-color: rgba(0, 0, 0, .2)
@@ -13,7 +13,7 @@
 
     .images {
       width: 100%;
-      overflow: hidden;;
+      overflow: hidden;
       font-size: 0
     }
 
@@ -21,17 +21,18 @@
       display: inline-block;
       border-radius: 4px;
       box-shadow: 0 0 6px 2px rgba(0, 0, 0, .5);
-      transform: scale(.95);
+      transform: scale(.95)
     }
 
     .images>img:hover {
       transform: scale(2);
       position: relative;
       z-index: 999;
-      transition: all 3s;
+      transition: all 3s
     }
 
     .loading {
+      visibility: hidden;
       text-align: center;
       position: fixed;
       bottom: 0;
@@ -41,22 +42,27 @@
       color: #ffffff;
       background-color: rgba(0, 0, 0, .5);
       margin: 0;
+      transition: all .5s;
+    }
+
+    .loading-show {
+      visibility: visible;
     }
   </style>
 </head>
 
 <body>
   <div class="images"></div>
-  <p class="loading" style="display: none">加载中 ...</p>
+  <p class="loading">加载中 ...</p>
   <script>
-    var index = 0,
-      arr = [],
-      imgarr = [],
-      IMG_WIDTH = 200
+    var page_index, //ajax获取数据的页数
+      storage_img_width, //存储暂存区的图片在初始化高度下的宽度，用来判断是否容纳的下下一个元素
+      img_storage_array, //存储在暂存区的图片元素  tips:暂存区---用来存储当前正在渲染的一行的元素
+      img_initial_height //图片初始化高度 
 
     window.onload = function () {
       initialArgs()
-      getImages(50, index++)
+      getImages(50, page_index++)
     }
 
     window.onscroll = function () {
@@ -64,7 +70,7 @@
       var height = document.querySelector('.images').clientHeight
       var position = doc.clientHeight + doc.scrollTop
       if (position >= height * 0.75) {
-        getImages(50, index++)
+        getImages(50, page_index++)
       }
     }
 
@@ -72,28 +78,31 @@
       if (/Mobile/.test(window.navigator.userAgent))
         return false
       initialArgs()
-      setTimeout(() => getImages(50, index++), 200)
+      setTimeout(() => getImages(50, page_index++), 200)
     }
 
+
+    //初始化所有全局参数
     function initialArgs() {
       var images = document.querySelector('.images')
       images.innerHTML = ''
-      index = 0
-      arr = []
-      imgarr = []
+      page_index = 0
+      storage_img_width = []
+      img_storage_array = []
       if (images.clientWidth <= 800) {
-        IMG_WIDTH = 100
+        img_initial_height = 100
       } else {
-        IMG_WIDTH = 200
+        img_initial_height = 200
       }
     }
 
+    //ajax获取数据
     function getImages(number, index) {
       var url = `https://gank.io/api/data/福利/${number}/${index}`
       var loading = document.querySelector('.loading')
-      loading.style.display = 'block'
+      loading.classList.add('loading-show')
       fetch(url).then(res => res.json()).then(res => {
-        loading.style.display = 'none'
+        loading.classList.remove('loading-show')
         res.results.map(info => {
           renderImage(info.url, appendImg)
         })
@@ -107,25 +116,25 @@
         callback({
           width: img.width,
           height: img.height
-        }, img)
+        }, img) //图片加载完成后将图片元素以及图片宽高传递给渲染函数
       }
     }
 
     function appendImg(info, target) {
       var images = document.querySelector('.images')
-      var wrapperWidth = images.offsetWidth
-      var allWidth = arr.length === 0 ? 0 : arr.reduce((pre, next) => pre + next)
-      var imgWidth = IMG_WIDTH * info.width / info.height
-      if (allWidth + imgWidth > wrapperWidth) {
-        imgarr.map((img, index) => {
-          img.style.width = (wrapperWidth * arr[index] / allWidth) + 'px'
+      var wrapperWidth = images.offsetWidth //计算容器的宽度
+      var allImgWidth = storage_img_width.length === 0 ? 0 : storage_img_width.reduce((pre, next) => pre + next) //计算已在暂存区图片的总宽度
+      var imgWidth = img_initial_height * info.width / info.height //计算当前图片在初始化高度下的宽度
+      if (allImgWidth + imgWidth > wrapperWidth) { //判断正在等待渲染的一行是否能够容纳下当前元素
+        img_storage_array.map((img, index) => { //容纳不下，将暂存区元素渲染到页面上
+          img.style.width = (wrapperWidth * storage_img_width[index] / allImgWidth) + 'px'
           images.appendChild(img)
         })
-        imgarr = [target]
-        arr = [imgWidth]
-      } else {
-        imgarr.push(target)
-        arr.push(imgWidth)
+        img_storage_array = [target] //清空暂存区元素，将当前元素放入其中
+        storage_img_width = [imgWidth] //记录新的暂存区元素的宽度
+      } else { //如果容纳得下，将其放入暂存区
+        img_storage_array.push(target)
+        storage_img_width.push(imgWidth)
       }
     }
   </script>
