@@ -1,3 +1,3 @@
-# jirengu
+# practice
 
-## jirengu task
+## some practices
