@@ -1,3 +1,3 @@
 # practice
 
-## some practices 
+## some practices
