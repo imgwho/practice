@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--实现回到顶部，先快后慢，在回到顶部过程中可以滚动滚轮打断回到顶部过程。-->
+<!--回到顶部按钮在第二屏才会出现，回到第一屏消失。-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>回到顶部实例</title>
+  <style>
+    body {
+      background-color: lightblue;
+      height: 1700px;
+    }
+
+    a {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<script type="text/javascript">
+  window.onload = function () {
+    var obtn = document.getElementById('btn');
+    var clientHeight = document.documentElement.clientHeight
+    var timer
+    var isTop = true
+    //滚动条滚动时触发
+    window.onscroll = function () {
+      var osTop = document.documentElement.scrollTop || document.body.scrollTop
+      if (osTop > clientHeight) {
+        obtn.style.display = 'block'
+      } else {
+        obtn.style.display = 'none'
+      }
+      if (!isTop) {
+        clearInterval(timer)
+      }
+      isTop = false
+    }
+    //点击返回顶部按钮触发
+    obtn.onclick = function () {
+      clearInterval(timer)
+      timer = setInterval(function () {
+        var osTop = document.documentElement.scrollTop || document.body.scrollTop
+        var ispeed = Math.floor(-osTop / 7) //对浮点数向下取整，小于或者等于该参数的最大整数。
+        document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed
+        isTop = true
+        console.log(osTop)
+        if (osTop == 0) {
+          clearInterval(timer)
+        }
+      }, 30)
+    }
+    
+  }
+</script>
+
+
+<body>
+  <a href="javascript:;" id="btn">回到顶部</a>
+</body>
+
+</html>

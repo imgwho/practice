@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>回到顶部</title>
+  <style>
+    div {
+      width: 30px;
+      height: 30px;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      text-align: center;
+      line-height: 30px;
+      position: fixed;
+      right: 0;
+      top: 500px;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      var oDiv = document.querySelector('div');
+      window.onscroll = function () {
+        var iScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        oDiv.onclick = function () {
+          var start = iScroll; //开始的滚动距离
+          var end = 0; //结束的滚动距离
+          var total = end - start; //移动的距离差
+          var time = 500; //移动的总时长
+          var count = Math.ceil(time / 30); //定时器走500毫秒需要走几步的总步数
+          var n = 0; //初始化n.开启定时器后让 n++
+          var timer = null; //定义定时器
+          timer = setInterval(function () {
+            n++;
+            if (n == count) {
+              clearInterval(timer);
+            }
+            console.log(count)
+            if (document.documentElement.scrollTop) {
+              document.documentElement.scrollTop = start + n * total / count;
+              // total/count意思是每30秒，走一步移动的距离
+            } else {
+              document.body.scrollTop = start + n * total / count;
+            }
+          }, 30);
+
+        }
+      }
+    }
+  </script>
+</head>
+
+<body style="height: 3000px;">
+  <div>↑</div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FlashText</title>
+  <style>
+    .btn {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    button {
+      display: inline-block;
+    }
+  </style>
+  <script>
+    var intervalId
+
+    function changeColor() {
+      intervalId = setInterval(flashText, 500)
+    }
+
+    function flashText() {
+      var e = document.getElementById("box")
+      e.style.color = e.style.color === "red" ? "blue" : "red"
+    } 
+
+    function stopChange() {
+      clearInterval(intervalId)
+    }
+  </script>
+</head>
+
+<body>
+  <p id="box">hello this is a flash text</p>
+  <div class="btn">
+    <button onclick="changeColor()">Start</button>
+    <button onclick="stopChange()">Stop</button>
+  </div>
+</body>
+
+</html>
