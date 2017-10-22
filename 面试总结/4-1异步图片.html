@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+  <title>异步</title>
+</head>
+
+<body>
+  <h1>看控制台</h1>
+  <script>
+    console.log('start')
+    var img = document.createElement('img')
+
+    img.onload = function () {
+      console.log('loaded')
+    }
+    img.src = 'http://ww1.sinaimg.cn/mw690/b8d8d39bgy1fkcywzogi7j20go0rwta5.jpg'
+    console.log('end')
+  </script>
+</body>
+
+</html>

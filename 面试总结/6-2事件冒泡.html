@@ -1,0 +1,24 @@
+<div id="div1">
+  <p id="p1">激活</p>
+  <p id="p2">取消</p>
+  <p id="p3">取消</p>
+  <p id="p4">取消</p>
+</div>
+<div id="div2">
+  <p id="p5">取消</p>
+  <p id="p6">取消</p>
+</div>
+<script type="text/javascript">
+  function myBindEvent(elem, type, fn) {
+    elem.addEventListener(type, fn)
+  }
+  var p1 = document.getElementById('p1')
+  var body = document.body
+  myBindEvent(p1, 'click', function (e) {
+    e.stopPropagation() //阻止冒泡
+    alert('激活')
+  })
+  myBindEvent(body, 'click', function (e) {
+    alert('取消')
+  })
+</script>

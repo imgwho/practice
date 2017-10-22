@@ -1,0 +1,19 @@
+<div id="div1">
+  <a href="#">a1</a>
+  <a href="#">a2</a>
+  <a href="#">a3</a>
+  <a href="#">a4</a>
+  <!-- 会随时新增更多a标签 -->
+</div>
+<script type="text/javascript">
+  function myBindEvent(elem, type, fn) {
+    elem.addEventListener(type, fn)
+  }
+  var div1 = document.getElementById('div1')
+  myBindEvent(div1, 'click', function (e) {
+    var target = e.target //获取要绑定事件的元素
+    if (target.nodeName === 'A') {
+      alert(target.innerHTML)
+    }
+  })
+</script>

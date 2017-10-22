@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM结构操作</title>
+</head>
+
+<body>
+  <div id="div1">
+    <p id="p1">p1</p>
+    <p id="p2">p2</p>
+  </div>
+  <div id="div2">
+      <p id="p3">p3</p>
+      <p id="p4">p4</p>
+    </div>
+</body>
+<script>
+  //创建节点
+  var p = document.createElement('p')
+  p.innerHTML = 'new p'
+  //获取节点
+  var div1 = document.getElementById('div1')
+  //拼接节点
+  div1.appendChild(p)
+
+  var p4 = document.getElementById('p4')
+  div1.appendChild(p4)
+  //获取父元素
+  console.log(p4.parentElement)
+  console.log(div1.childNodes[0].nodeType)
+  //如果节点是元素节点，则 nodeType 属性将返回 1。
+  // 如果节点是属性节点，则 nodeType 属性将返回 2。
+  console.log(div1.childNodes[0].nodeName)
+  //删除节点
+  var childNodes = div1.childNodes
+  div1.removeChild(childNodes[1])
+</script>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>通用事件监听函数</title>
+</head>
+
+<body>
+  <div id="div1">
+    <a href="http://baidu.com" id="link1">baidu</a>
+    <a href="http://baidu.com" id="link2">baidu</a>
+    <a href="http://baidu.com" id="link3">baidu</a>
+    <a href="http://baidu.com" id="link4">baidu</a>
+    <p id="p1">激活</p>
+    <p id="p2">取消</p>
+  </div>
+  <div id="div2">
+    <p id="p3">取消</p>
+    <p id="p4">取消</p>
+  </div>
+  <script>
+    function bindEvent(elem, type, selector, fn) {
+      if (fn == null) {
+        fn = selector
+        selector = null
+      }
+      elem.addEventListener(type, function (e) {
+        var target
+        if (selector) {
+          //是代理的时候
+          target = e.target
+          if (target.matches(selector)) {
+            fn.call(target, e)
+          }
+        } else {
+          fn(e) //不是代理的时候
+        }
+      })
+    }
+
+
+    //使用代理
+    var div1 = document.getElementById('div1')
+    bindEvent(div1, 'click', 'a', function (e) {
+      e.preventDefault()
+      console.log(this.href)
+    })
+
+    //不使用代理
+    var p1 = document.getElementById('p1')
+    bindEvent(p1, 'click', function (e) {
+      console.log(p1.innerHTML)
+    })
+  </script>
+</body>
+
+</html>

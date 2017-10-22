@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+  <title>异步</title>
+</head>
+
+<body>
+  <h1>看控制台</h1>
+  <script>
+    // console.log(100)
+    // setTimeout(function() {
+    //   console.log(200)
+    // }, 1000)
+    // console.log(300)
+    console.log('start')
+    $.get('https://yesno.wtf/api', function (response) {
+      console.log(response)
+    })
+    setTimeout(function () {
+      console.log('end')
+    }, 1000)
+  </script>
+</body>
+
+</html>
