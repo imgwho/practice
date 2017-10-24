@@ -7,5 +7,8 @@
  */
 
  function apply(fn) {
-   
+   return fn.apply(this, [].slice.call(arguments, 1))
  }
+
+
+//  var callIt = (fn) => fn.apply(null, [].splice.call(arguments, 1))
