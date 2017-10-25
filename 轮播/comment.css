@@ -1,0 +1,31 @@
+.turn-icon {
+  position: absolute;
+  transition: all .2s;
+  width: 40px;
+  height: 40px;
+  border: 10px solid transparent;
+  border-right-color: rgba(0,0,0,.6);
+  border-top-color: rgba(0,0,0,.6);
+}
+
+.turn-icon-right {
+  right: 40%;
+  top: 45%;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+.turn-icon-right:hover {
+  transform: rotate(45deg) scale(1.2);
+}
+
+.turn-icon-left {
+  left: 40%;
+  top: 45%;
+  transform: rotate(-135deg);
+  cursor: pointer;
+}
+
+.turn-icon-left:hover {
+  transform: rotate(-135deg) scale(1.2);
+}
