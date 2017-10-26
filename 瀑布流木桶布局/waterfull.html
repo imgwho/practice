@@ -31,7 +31,7 @@
     .images>img:hover {
       transform: scale(2);
       z-index: 999;
-      transition: all 2s
+      transition: all 0.7s
     }
 
     .loading {
@@ -145,14 +145,20 @@
 
     function appendImg(info, target) {
       var images = document.querySelector('.images')
-      var min_height = Math.min.apply(null, Object.values(index_object)) // 找到最小行高
-      var min_height_index = Object.values(index_object).indexOf(min_height) //找到最小行高所在的行
+      // 找到最小行高
+      var min_height = Math.min.apply(null, Object.values(index_object))
+      //找到最小行高所在的行
+      var min_height_index = Object.values(index_object).indexOf(min_height)
       target.style.width = img_initial_width + 'px'
-      target.style.left = min_height_index * (img_initial_width + 20) + 'px' //通过所在行确定left值
-      target.style.top = `${min_height}px` //最小值赋给元素
+      //通过所在行确定left值
+      target.style.left = min_height_index * (img_initial_width + 20) + 'px'
+      //最小值赋给元素
+      target.style.top = `${min_height}px`
+      //记录改变后当前的行高
       index_object[`index${min_height_index}`] =
-        index_object[`index${min_height_index}`] + (img_initial_width * (info.height / info.width)) + 20 //记录改变后当前的行高
-      images.appendChild(target) //将图片渲染到页面
+        index_object[`index${min_height_index}`] + (img_initial_width * (info.height / info.width)) + 20
+      //将图片渲染到页面
+      images.appendChild(target)
     }
   </script>
 </body>
