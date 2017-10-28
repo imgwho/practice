@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>WaterFall</title>
+  <title>WaterFall same height</title>
   <style>
      ::-webkit-scrollbar {
       width: 0;
@@ -121,6 +121,7 @@
 
     //ajax获取数据
     function getImages(number, index) {
+      //模板字符串 number index都是变量
       var url = `https://gank.io/api/data/福利/${number}/${index}`
       var loading = document.querySelector('.loading')
       loading.classList.add('loading-show')
