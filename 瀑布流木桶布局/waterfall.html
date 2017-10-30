@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>WaterFall same height</title>
+  <title>WaterFall same width</title>
   <style>
      ::-webkit-scrollbar {
       width: 0;
@@ -64,12 +64,12 @@
 
     window.onload = function () {
       initialArgs()
-      getImages(50, page_index++)
+      getImages(20, page_index++)
     }
 
     window.onresize = function () {
       initialArgs()
-      getImages(50, page_index++)
+      getImages(20, page_index++)
     }
 
     /*
@@ -145,6 +145,7 @@
     }
 
     function appendImg(info, target) {
+      console.log(index_object)
       var images = document.querySelector('.images')
       // 找到最小行高
       var min_height = Math.min.apply(null, Object.values(index_object))
@@ -158,6 +159,7 @@
       //记录改变后当前的行高
       index_object[`index${min_height_index}`] =
         index_object[`index${min_height_index}`] + (img_initial_width * (info.height / info.width)) + 20
+        
       //将图片渲染到页面
       images.appendChild(target)
     }
