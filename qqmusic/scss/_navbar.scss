@@ -1,17 +1,17 @@
 .navbar {
-  ul.navbar-list {
+  .nav-list {
     display: flex;
     align-items: center;
-    .navbar-item {
+    .nav-item {
       flex: 1;
       cursor: pointer;
       position: relative;
       text-align: center;
-      color: $navbar-item-color;
-      height: $navbar-item-height;
-      line-height: $navbar-item-height;
+      color: $nav-item-color;
+      height: $nav-item-height;
+      line-height: $nav-item-height;
       &.active {
-        color: $navbar-item-active;
+        color: $nav-item-active;
       }
       &.active::after {
         content: "";
@@ -21,7 +21,7 @@
         left: 0;
         right: 0;
         height: 2px;
-        background: $navbar-item-active;
+        background: $nav-item-active
       }
     }
   }
