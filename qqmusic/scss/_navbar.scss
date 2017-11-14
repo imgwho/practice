@@ -1,0 +1,28 @@
+.navbar {
+  ul.navbar-list {
+    display: flex;
+    align-items: center;
+    .navbar-item {
+      flex: 1;
+      cursor: pointer;
+      position: relative;
+      text-align: center;
+      color: $navbar-item-color;
+      height: $navbar-item-height;
+      line-height: $navbar-item-height;
+      &.active {
+        color: $navbar-item-active;
+      }
+      &.active::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: $navbar-item-active;
+      }
+    }
+  }
+}
