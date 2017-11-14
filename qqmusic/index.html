@@ -18,9 +18,9 @@
   </header>
   <nav class="navbar">
     <ul class="nav-list">
-      <li class="nav-item" data-role="tab" data-view="#rec-view">推荐</li>
+      <li class="nav-item active" data-role="tab" data-view="#rec-view">推荐</li>
       <li class="nav-item" data-role="tab" data-view="#rank-view">排行榜</li>
-      <li class="nav-item active" data-role="tab" data-view="#search-view">搜索</li>
+      <li class="nav-item" data-role="tab" data-view="#search-view">搜索</li>
     </ul>
   </nav>
   <div class="views">
@@ -34,6 +34,9 @@
         <h2 class="title">热门歌单</h2>
         <div class="list"></div>
       </div>
+      <footer class="footer">
+        <div class="footer-logo"></div>
+      </footer>
     </div>
     <div id="rank-view" class="hide">
       <ul class="toplist">
@@ -46,11 +49,20 @@
           <span class="icon-search"></span>
         </div>
       </div>
+      <div class="search-results">
+        <ul class="song-list"></ul>
+      </div>
+      <div class="search-loading">
+        <i class="loading-icon"></i>
+        <div class="loading-text">正在载入更多...</div>
+        <div class="loading-done hide">已加载全部</div>
+      </div>
     </div>
   </div>
   <script src="scripts/slider.js"></script>
   <script src="scripts/lazyload.js"></script>
   <script src="scripts/tab.js"></script>
+  <script src="scripts/search.js"></script>
   <script src="scripts/app.js"></script>
 </body>
 
