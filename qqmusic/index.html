@@ -14,13 +14,13 @@
   <header id="header">
     <h1>QQ 音乐</h1>
     <img src="images/logo.png" alt="Logo" id="logo">
-    <a href="#" class="download">下载 APP</a>
+    <div class="show-player">播放器</div>
   </header>
   <nav class="navbar">
     <ul class="nav-list">
-      <li class="nav-item active" data-role="tab" data-view="#rec-view">推荐</li>
+      <li class="nav-item" data-role="tab" data-view="#rec-view">推荐</li>
       <li class="nav-item" data-role="tab" data-view="#rank-view">排行榜</li>
-      <li class="nav-item" data-role="tab" data-view="#search-view">搜索</li>
+      <li class="nav-item active" data-role="tab" data-view="#search-view">搜索</li>
     </ul>
   </nav>
   <div class="views">
@@ -50,7 +50,7 @@
         </div>
       </div>
       <div class="search-results">
-        <ul class="song-list"></ul>
+        <div class="song-list"></div>
       </div>
       <div class="search-loading">
         <i class="loading-icon"></i>
@@ -59,10 +59,34 @@
       </div>
     </div>
   </div>
+  <div id="player">
+    <div class="player-container">
+      <div class="player-header">
+        <img class="album-cover">
+        <div class="song-info">
+          <div class="song-name ellipsis"></div>
+          <div class="song-artist ellipsis"></div>
+        </div>
+        <span class="icon-action icon-play"></span>
+      </div>
+      <div class="player-lyrics"></div>
+      <div class="player-footer">
+        <div class="icon-list"></div>
+        <div class="progress"></div>
+        <div class="actions">
+          <a href="#" class="btn-download">下载这首歌</a>
+        </div>
+      </div>
+    </div>
+    <div class="player-background"></div>
+  </div>
   <script src="scripts/slider.js"></script>
   <script src="scripts/lazyload.js"></script>
   <script src="scripts/tab.js"></script>
   <script src="scripts/search.js"></script>
+  <script src="scripts/progress_bar.js"></script>
+  <script src="scripts/lyrics_player.js"></script>
+  <script src="scripts/music_player.js"></script>
   <script src="scripts/app.js"></script>
 </body>
 

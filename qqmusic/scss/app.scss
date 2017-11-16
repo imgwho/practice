@@ -7,7 +7,9 @@
 @import "rec";
 @import "rank";
 @import "search";
+@import "player";
 
 body {
   background: $body-background;
+  font-family: FZLTXIHJW--GB1-0, "hiragino sans gb", "Helvetica Neue", Helvetica, STHeiTi, Arial;
 }

@@ -5,6 +5,7 @@ class Search {
     this.$input.addEventListener('keyup', this.onKeyUp.bind(this))
     this.$songs = this.$el.querySelector('.song-list')
     this.page = 1
+    this.songs = {}
     this.keyword = ''
     this.perpage = 20
     this.nomore = false
@@ -29,13 +30,14 @@ class Search {
 
   reset() {
     this.page = 1
+    this.songs = {}
     this.keyword = ''
     this.nomore = false
     this.$songs.innerHTML = ''
   }
 
   search(keyword, page) {
-    if (!this.page && this.keyword === keyword) return
+    if (this.keyword === keyword && this.songs[page || this.page]) return
     if (this.nomore || this.fetching) return
     if (this.keyword !== keyword) this.reset()
     this.keyword = keyword
@@ -44,6 +46,7 @@ class Search {
       .then(res => res.json())
       .then(json => {
         this.page = json.data.song.curpage
+        this.songs[this.page] = json.data.song.list
         this.nomore = json.message === 'no results'
         return json.data.song.list
       })
@@ -53,12 +56,15 @@ class Search {
   }
 
   append(songs) {
-    let html = songs.map(song => `
-      <li class="song-item">
-        <i class="icon icon-music"></i>
-        <div class="song-name ellipsis">${song.songname}</div>
-        <div class="song-artist ellipsis">${song.singer.map(s => s.name).join(' ')}</div>
-      </li>`).join('')
+    let html = songs.map(song => {
+      let artist = song.singer.map(s => s.name).join(' ')
+      return `
+        <a class="song-item"
+           href="#player?artist=${artist}&songid=${song.songid}&songname=${song.songname}&albummid=${song.albummid}&duration=${song.interval}">
+          <i class="icon icon-music"></i>
+          <div class="song-name ellipsis">${song.songname}</div>
+          <div class="song-artist ellipsis">${artist}</div>
+        </a>`}).join('')
     this.$songs.insertAdjacentHTML('beforeend', html)
   }
 
@@ -70,7 +76,8 @@ class Search {
   done() {
     this.fetching = false
     if (this.nomore) {
-      this.$el.querySelectorAll('.loading-icon, .loading-text').forEach(el => el.style.display = 'none')
+      this.$el.querySelector('.loading-icon').style.display = 'none'
+      this.$el.querySelector('.loading-text').style.display = 'none'
       this.$el.querySelector('.loading-done').style.display = 'block'
       this.$el.querySelector('.search-loading').classList.add('show')
     } else {
