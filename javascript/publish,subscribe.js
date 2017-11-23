@@ -24,3 +24,15 @@ a.listen('a', () => console.log('456'))
 a.listen('a', () => console.log('789'))
 
 a.publish('a')
+
+
+let b = new Obverse()
+
+
+b.listen('b', () => console.log('开始'))
+b.listen('b', () => console.log('等待中'))
+b.listen('b', () => console.log('完成'))
+
+b.publish('b')
+
+
