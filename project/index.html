@@ -27,7 +27,7 @@
 
     main>section {
       /* height: calc(100% - 45px); */
-      padding: 10px;
+      /* padding: 10px; */
       background: #fff;
       /* overflow: scroll; */
       /* -webkit-overflow-scrolling: touch; */
@@ -58,8 +58,9 @@
     }
 
     nav {
-      font-size: 16px;
-      margin-top: 10px;
+      font-size: 13px;
+      margin-top: 5px;
+      margin-bottom: 5px;
       height: 20px;
       text-align: left;
       margin-left: 10px;
@@ -112,14 +113,15 @@
     }
 
     .green {
-      background-color: green;
+      color: green;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <span class="back-icon"> < </span>
+    <!-- <span class="back-icon"> < </span> -->
+    <a href="official website.html" class="back-icon" target=_self><</a>
     <p>低碳商品</p>
   </header>
   <nav><span class="nav-btn byCount green">销量优先</span> <span class="nav-btn byTime">时间优先</span></nav>
@@ -244,6 +246,7 @@
             <div class="name">${data.title}</div>
             <div class="price"><span class="info">${data.normsJson[0]['price']}</span>碳票</div>
             <div class="zSccerZhi">附送碳: <span class="info">${data.normsJson[0]['zSccerZhi']}</span>吨</div>
+            <div class="name">${data.count}</div>
           </div>
         </a>
       </div>`;

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>绿豆芽</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+     ::-webkit-scrollbar {
+      display: none;
+    }
+
+    html,
+    body,
+    main {
+      height: 100%;
+      width: 100%;
+      display: block;
+    }
+
+    body {
+      font-size: 16px;
+      line-height: 1.2;
+      background-color: #FFFFFF;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+
+    header {
+      background-color: #1AAD19;
+      color: #fff;
+      height: 45px;
+      line-height: 45px;
+      color: #FFFFFF;
+    }
+
+    header>.company-name {
+      float: left;
+      margin-left: 10px;
+    }
+
+    header>.company-describe {
+      float: right;
+      margin-right: 10px;
+    }
+
+    nav>.download-describe {
+      width: 100%;
+      height: 30px;
+      background-color: #F0F0F2;
+      font-weight: bold;
+      padding-top: 5px;
+      padding-left: 10px;
+    }
+
+    .download-store::after {
+      content: ""; 
+      height: 0; 
+      line-height: 0; 
+      display: block; 
+      visibility: hidden; 
+      clear: both;
+    }
+
+    nav>.download-store>.download-android {
+      float: left;
+      width: 50%;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    nav>.download-store>.download-ios {
+      float: right;
+      width: 50%;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .download-apk {
+      max-width: 50px;
+    }
+
+    nav>.ad-describe {
+      max-width: 100%;
+      height: 30px;
+      padding-left: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      line-height: 24px;
+      font-size: 14px;
+      color: #888888;
+      background-color: #F0F0F2;
+    }
+
+    main>.cover>.coverImg {
+      text-align: center;
+    }
+
+    main>.cover>.coverImg>img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <span class="company-name">绿豆芽</span>
+    <span class="company-describe">蜀ICP备13005194号-1</span>
+  </header>
+  <nav>
+    <div class="download-describe">APP下载</div>
+    <div class="download-store">
+      <div class="download-android">
+        <img class="download-apk" src="android.png">
+        <br>安卓下载</div>
+      <div class="download-ios">
+        <img class="download-apk" src="ios.png">
+        <br>苹果下载</div>
+    </div>
+    <div class="ad-describe">限时推广</div>
+
+  </nav>
+  <main>
+    <section class="cover">
+      <div class="coverImg">
+        <img src="cover.jpg" alt="">
+      </div>
+    </section>
+  </main>
+
+</body>
+
+</html>
