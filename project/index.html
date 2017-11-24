@@ -232,7 +232,8 @@
 
     function ajaxMoreData() {
       let current_height = document.documentElement.scrollTop + document.documentElement.clientHeight;
-      let height = 68 + 5 * 244.5;
+      let itemHeight = document.querySelector('.item').clientHeight;
+      let height = 68 + index * 5 * itemHeight;
       if (current_height + 50 > height) {
         func(++index, sortBy);
       }
