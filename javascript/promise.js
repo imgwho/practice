@@ -33,4 +33,5 @@ function powerPromise(index) {
   return _ajax()
 }
 
-powerPromise(2).then(() => console.log('then')).catch((res) => console.log(res, '我没被catch捕获'))
+powerPromise(3).then(() => console.log('then')).catch((res) => console.log(res, '我没被catch捕获', '=========================================='))
+// powerPromise(2).then(() => console.log('then')).catch((res) => console.log(res, '我没被catch捕获'))
