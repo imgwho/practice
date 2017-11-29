@@ -166,9 +166,7 @@
     <section id="pic-content">
       <div class="carousel">
         <!-- <div class="item">
-          <a href="http://wufazhuce.com/one/1908">
             <img class="fp-one-imagen" src="http://image.wufazhuce.com/FityQJiz3d-FrAOH0-OaAJdo-CKT" alt="">
-          </a>
           <div class="fp-one-imagen-footer">
             插画 </div>
           <div class="fp-one-cita-wrapper">
@@ -412,16 +410,14 @@
         console.log(newarr)
         let html =
           `<div class="item">
-          <a href="http://wufazhuce.com/one/1908">
             <img class="fp-one-imagen" src="${newarr[0].hp_img_url}" alt="">
-          </a>
           <div class="fp-one-imagen-footer">
             ${newarr[0].hp_author} </div>
           <div class="fp-one-cita-wrapper">
             <div class="fp-one-date">
               <p class="titulo">${newarr[0].hp_title}</p>
-              <p class="dom">28</p>
-              <p class="may">Nov 2017</p>
+              <p class="dom">${day}</p>
+              <p class="may">Nov ${year}</p>
             </div>
             <div class="fp-one-cita">
               ${newarr[0].hp_content}
@@ -434,9 +430,9 @@
       })
 
       function renderHtml() {
-        
+
       }
-      
+
     }
 
 
