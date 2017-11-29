@@ -19,11 +19,14 @@
       display: block;
     }
 
-
+    a {
+      color: #666;
+    }
 
     body {
       font-family: "Open Sans", "Helvetica Neue", Helvetica, "BBAlpha Sans", "S60 Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
       font-size: 12px;
+      line-height: 1.42857143;
     }
 
     header {
@@ -44,7 +47,10 @@
 
     main>#pic-content {
       max-width: 566px;
-      position: absolute;
+      float: left;
+      width: 66.66666667%;
+      padding-left: 5px;
+      padding-right: 5px;
     }
 
     main>#pic-content>.carousel>.item,
@@ -54,27 +60,24 @@
     }
 
     .item>.fp-one-imagen-footer {
-      width: 566px;
       height: 22.8px;
-      line-height: 1.42857143;
       background-color: #333333;
       color: #fff;
       padding: 3px 0;
       box-sizing: border-box;
+      text-align: center;
     }
 
-    .fp-one-cita-wrapper {
-      border: 1px solid black;
-    }
 
     .fp-one-cita-wrapper>.fp-one-date {
       background-color: #f2f2f2;
       color: #333;
       float: right;
       height: 120px;
-      /* padding: 12.5px; */
+      padding: 12.5px;
       text-align: center;
       width: 100px;
+      padding: 3px;
     }
 
     .fp-one-cita-wrapper>.fp-one-cita {
@@ -87,20 +90,23 @@
       vertical-align: middle;
     }
 
-    .fp-one-cita-wrapper::after {
+    #pic-content::after,
+    #other::after {
       content: "";
       height: 0;
-      line-height: 0;
       display: block;
       visibility: hidden;
       clear: both;
+    }
+
+    .fp-one-cita-wrapper {
+      background-color: #d6d6d6;
     }
 
     .fp-one-cita-wrapper>.fp-one-date>.dom {
       font-size: 56px;
       font-weight: 600;
       height: 56px;
-      line-height: 56px;
       margin: 0;
     }
 
@@ -110,26 +116,49 @@
       padding: 3px 0;
       position: static;
       width: 100%;
-      line-height: 1.42857143;
       left: 50%;
       z-index: 15;
       height: 16.8px;
       text-align: center;
     }
 
-    #articel {
-      position: relative;
-      border: 1px solid black;
-      left: 585px;
-      width: 33%;
+    #other {
+      /* border: 1px solid black; */
+      float: left;
+      padding: 0 5px;
+      width: 33.33333333%;
+      margin-left: 10px;
     }
 
-    #question {
-      position: relative;
-      border: 1px solid black;
-      top: 20px;
-      left: 585px;
-      width: 33%;
+    #other>.article,
+    #other>.question {
+      background-color: #f6f6f6;
+      margin-top: 10px;
+    }
+
+    #other>.article>h4,
+    #other>.question>h4 {
+      background-color: #01aef0;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 32px;
+      margin: 0 0 10px 0;
+      padding: 5px 10px;
+    }
+
+    .list-unstyled {
+      padding-bottom: 10px;
+    }
+
+    .list-unstyled>li {
+      font-size: 12px;
+      height: 26px;
+      line-height: 26px;
+      overflow: hidden;
+      padding: 0 10px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   </style>
 </head>
@@ -281,90 +310,96 @@
         </div>
       </div> -->
     </section>
-    <section id="articel">
-      <h1>ONE 文章</h1>
-      <ul class="list-unstyled pasado">
-        <li>
-          <span class="text-muted">VOL.1878</span>
-          <a href="http://wufazhuce.com/article/2919">
-            杀死一只猫
-            <small>- 高翔</small>
-          </a>
-        </li>
-        <li>
-          <span class="text-muted">VOL.1877</span>
-          <a href="http://wufazhuce.com/article/2927">
-            有些分手是好事
-            <small>- 陈雪</small>
-          </a>
-        </li>
-        <li>
-          <span class="text-muted">VOL.1876</span>
-          <a href="http://wufazhuce.com/article/2933">
-            葬礼
-            <small>- 刘文</small>
-          </a>
-        </li>
-        <li>
-          <span class="text-muted">VOL.1875</span>
-          <a href="http://wufazhuce.com/article/2936">
-            今天败完，明天完败
-            <small>- 黄集伟</small>
-          </a>
-        </li>
-        <li>
-          <span class="text-muted">VOL.1874</span>
-          <a href="http://wufazhuce.com/article/2930">
-            无处告别
-            <small>- 焦冲</small>
-          </a>
-        </li>
-        <li>
-          <span class="text-muted">VOL.1873</span>
-          <a href="http://wufazhuce.com/article/2935">
-            “敢动孩子们，你就死定了”
-            <small>- </small>
-          </a>
-        </li>
-      </ul>
+    <section id="other">
+      <div class="article">
+        <h4>ONE 文章</h4>
+        <ul class="list-unstyled pasado">
+          <li>
+            <span class="text-muted">VOL.1878</span>
+            <a href="http://wufazhuce.com/article/2919">
+              杀死一只猫
+              <small>- 高翔</small>
+            </a>
+          </li>
+          <li>
+            <span class="text-muted">VOL.1877</span>
+            <a href="http://wufazhuce.com/article/2927">
+              有些分手是好事
+              <small>- 陈雪</small>
+            </a>
+          </li>
+          <li>
+            <span class="text-muted">VOL.1876</span>
+            <a href="http://wufazhuce.com/article/2933">
+              葬礼
+              <small>- 刘文</small>
+            </a>
+          </li>
+          <li>
+            <span class="text-muted">VOL.1875</span>
+            <a href="http://wufazhuce.com/article/2936">
+              今天败完，明天完败
+              <small>- 黄集伟</small>
+            </a>
+          </li>
+          <li>
+            <span class="text-muted">VOL.1874</span>
+            <a href="http://wufazhuce.com/article/2930">
+              无处告别
+              <small>- 焦冲</small>
+            </a>
+          </li>
+          <li>
+            <span class="text-muted">VOL.1873</span>
+            <a href="http://wufazhuce.com/article/2935">
+              “敢动孩子们，你就死定了”
+              <small>- </small>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="question">
+        <h4>ONE 问题</h4>
+        <ul class="list-unstyled pasado">
+          <li>
+            <span class="text-muted">VOL.1878</span>
+            <a href="http://wufazhuce.com/question/1928">
+              拥有运动员一样的老婆是什么体验？ </a>
+          </li>
+          <li>
+            <span class="text-muted">VOL.1877</span>
+            <a href="http://wufazhuce.com/question/1927">
+              把你学习或从事的专业用在恋爱上，能做些什么？ ​​​​ </a>
+          </li>
+          <li>
+            <span class="text-muted">VOL.1876</span>
+            <a href="http://wufazhuce.com/question/1929">
+              你幼时碰到过什么特别无助的事情？ </a>
+          </li>
+          <li>
+            <span class="text-muted">VOL.1875</span>
+            <a href="http://wufazhuce.com/question/1926">
+              聊天习惯用表情包到底是好是坏？ </a>
+          </li>
+          <li>
+            <span class="text-muted">VOL.1874</span>
+            <a href="http://wufazhuce.com/question/1924">
+              在我们辛苦打拼时，为什么还有这么多人很闲？ </a>
+          </li>
+          <li>
+            <span class="text-muted">VOL.1873</span>
+            <a href="http://wufazhuce.com/question/1923">
+              有多大的决心才能减肥成功？ </a>
+          </li>
+        </ul>
+      </div>
     </section>
-    <section id="question">
-      <h1>ONE 问题</h1>
-      <ul class="list-unstyled pasado">
-        <li>
-          <span class="text-muted">VOL.1878</span>
-          <a href="http://wufazhuce.com/question/1928">
-            拥有运动员一样的老婆是什么体验？ </a>
-        </li>
-        <li>
-          <span class="text-muted">VOL.1877</span>
-          <a href="http://wufazhuce.com/question/1927">
-            把你学习或从事的专业用在恋爱上，能做些什么？ ​​​​ </a>
-        </li>
-        <li>
-          <span class="text-muted">VOL.1876</span>
-          <a href="http://wufazhuce.com/question/1929">
-            你幼时碰到过什么特别无助的事情？ </a>
-        </li>
-        <li>
-          <span class="text-muted">VOL.1875</span>
-          <a href="http://wufazhuce.com/question/1926">
-            聊天习惯用表情包到底是好是坏？ </a>
-        </li>
-        <li>
-          <span class="text-muted">VOL.1874</span>
-          <a href="http://wufazhuce.com/question/1924">
-            在我们辛苦打拼时，为什么还有这么多人很闲？ </a>
-        </li>
-        <li>
-          <span class="text-muted">VOL.1873</span>
-          <a href="http://wufazhuce.com/question/1923">
-            有多大的决心才能减肥成功？ </a>
-        </li>
-      </ul>
-    </section>
+
   </main>
-  <footer></footer>
+  <script>
+  
+  
+  </script>
 </body>
 
 </html>
