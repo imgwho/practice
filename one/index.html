@@ -406,27 +406,27 @@
     function getData() {
       fetch(getDate).then(res => res.json()).then(res => {
         // console.log(res)
+        let i = 0
         let newarr = res.data.splice(0, 7)
         console.log(newarr)
         let html =
           `<div class="item">
-            <img class="fp-one-imagen" src="${newarr[0].hp_img_url}" alt="">
+            <img class="fp-one-imagen" src="${newarr[i].hp_img_url}" alt="">
           <div class="fp-one-imagen-footer">
-            ${newarr[0].hp_author} </div>
+            ${newarr[i].hp_author} </div>
           <div class="fp-one-cita-wrapper">
             <div class="fp-one-date">
-              <p class="titulo">${newarr[0].hp_title}</p>
+              <p class="titulo">${newarr[i].hp_title}</p>
               <p class="dom">${day}</p>
               <p class="may">Nov ${year}</p>
             </div>
             <div class="fp-one-cita">
-              ${newarr[0].hp_content}
+              ${newarr[i].hp_content}
             </div>
           </div>
         </div>
         `
         document.querySelector('.carousel').innerHTML += html
-        console.log('a')
       })
 
       function renderHtml() {
@@ -434,9 +434,6 @@
       }
 
     }
-
-
-
 
     window.onload = getData()
   </script>
