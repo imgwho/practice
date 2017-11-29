@@ -102,7 +102,7 @@
     }
 
     .fp-one-cita-wrapper>.fp-one-date>.dom {
-      font-size: 56px;
+      font-size: 26px;
       font-weight: 600;
       height: 56px;
       margin: 0;
@@ -391,47 +391,41 @@
 
   </main>
   <script>
-    function getData(id) {
-
-    }
     let date = new Date()
     let year = date.getFullYear()
     let month = date.getMonth() + 1
     let day = date.getDate()
 
-    let getDate =
+    let getPicText =
       `http://v3.wufazhuce.com:8000/api/hp/bymonth/${year}-${month}-${day}%2000:00:00?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`
 
 
     function getData() {
-      fetch(getDate).then(res => res.json()).then(res => {
+      fetch(getPicText).then(res => res.json()).then(res => {
         // console.log(res)
-        let i = 0
         let newarr = res.data.splice(0, 7)
-        console.log(newarr)
-        let html =
+        let html = ''
+        newarr.forEach(item => html +=
           `<div class="item">
-            <img class="fp-one-imagen" src="${newarr[i].hp_img_url}" alt="">
-          <div class="fp-one-imagen-footer">
-            ${newarr[i].hp_author} </div>
-          <div class="fp-one-cita-wrapper">
-            <div class="fp-one-date">
-              <p class="titulo">${newarr[i].hp_title}</p>
-              <p class="dom">${day}</p>
-              <p class="may">Nov ${year}</p>
-            </div>
-            <div class="fp-one-cita">
-              ${newarr[i].hp_content}
+              <img class="fp-one-imagen" src="${item.hp_img_url}" alt="">
+              <div class="fp-one-imagen-footer">
+                ${item.hp_author} 
+              </div>
+              <div class="fp-one-cita-wrapper">
+                <div class="fp-one-date">
+                  <p class="titulo">${item.hp_title}</p>
+                  <p class="dom">${year}</p>
+                  <p class="may">${item.maketime}</p>
+              </div>
+              <div class="fp-one-cita">
+                ${item.hp_content}
+              </div>
             </div>
           </div>
-        </div>
         `
+        )
         document.querySelector('.carousel').innerHTML += html
       })
-
-      function renderHtml() {
-
-      }
 
     }
 

@@ -11,3 +11,25 @@ fetch(idlist).then(res => res.json()).then(res => {
     console.log(res)
   })
 })
+
+
+
+let html =
+  `
+  <div class="item">
+      <img class="fp-one-imagen" src="${item.hp_img_url}" alt="">
+      <div class="fp-one-imagen-footer">
+        ${item.hp_author} 
+      </div>
+      <div class="fp-one-cita-wrapper">
+        <div class="fp-one-date">
+          <p class="titulo">${item.hp_title}</p>
+          <p class="dom">${day}</p>
+          <p class="may">Nov ${year}</p>
+      </div>
+      <div class="fp-one-cita">
+        ${item.hp_content}
+      </div>
+    </div>
+  </div>`
+        
