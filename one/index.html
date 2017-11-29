@@ -17,6 +17,7 @@
 
     img {
       display: block;
+      width: 100%;
     }
 
     a {
@@ -43,14 +44,13 @@
       max-width: 864px;
       margin: 0 auto;
       margin-top: 10px;
+      border-left: -5px;
     }
 
     main>#pic-content {
       max-width: 566px;
       float: left;
       width: 66.66666667%;
-      padding-left: 5px;
-      padding-right: 5px;
     }
 
     main>#pic-content>.carousel>.item,
@@ -63,7 +63,6 @@
       height: 22.8px;
       background-color: #333333;
       color: #fff;
-      padding: 3px 0;
       box-sizing: border-box;
       text-align: center;
     }
@@ -86,7 +85,6 @@
       height: 120px;
       line-height: 1.67;
       margin-right: 100px;
-      padding: 10px 5%;
       vertical-align: middle;
     }
 
@@ -123,9 +121,7 @@
     }
 
     #other {
-      /* border: 1px solid black; */
       float: left;
-      padding: 0 5px;
       width: 33.33333333%;
       margin-left: 10px;
     }
@@ -133,7 +129,6 @@
     #other>.article,
     #other>.question {
       background-color: #f6f6f6;
-      margin-top: 10px;
     }
 
     #other>.article>h4,
@@ -170,7 +165,7 @@
   <main>
     <section id="pic-content">
       <div class="carousel">
-        <div class="item">
+        <!-- <div class="item">
           <a href="http://wufazhuce.com/one/1908">
             <img class="fp-one-imagen" src="http://image.wufazhuce.com/FityQJiz3d-FrAOH0-OaAJdo-CKT" alt="">
           </a>
@@ -186,8 +181,9 @@
               我总是这样心怀秘密，感觉茫然，内心却又充满了力量。
             </div>
           </div>
-        </div>
-        <ol class="carousel-indicators">
+        </div> -->
+      </div>
+      <!-- <ol class="carousel-indicators">
           <li data-target="#carousel-one" data-slide-to="0" class="active"></li>
           <li data-target="#carousel-one" data-slide-to="1"></li>
           <li data-target="#carousel-one" data-slide-to="2"></li>
@@ -195,8 +191,8 @@
           <li data-target="#carousel-one" data-slide-to="4"></li>
           <li data-target="#carousel-one" data-slide-to="5"></li>
           <li data-target="#carousel-one" data-slide-to="6"></li>
-        </ol>
-        <!-- <div class="item">
+        </ol> -->
+      <!-- <div class="item">
           <a href="http://wufazhuce.com/one/1907">
             <img class="fp-one-imagen" src="http://image.wufazhuce.com/Fhl7qg2xThq2_3vqQ94ipuNGZ9Fu" alt="">
           </a>
@@ -397,8 +393,56 @@
 
   </main>
   <script>
-  
-  
+    function getData(id) {
+
+    }
+    let date = new Date()
+    let year = date.getFullYear()
+    let month = date.getMonth() + 1
+    let day = date.getDate()
+
+    let getDate =
+      `http://v3.wufazhuce.com:8000/api/hp/bymonth/${year}-${month}-${day}%2000:00:00?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`
+
+
+    function getData() {
+      fetch(getDate).then(res => res.json()).then(res => {
+        // console.log(res)
+        let newarr = res.data.splice(0, 7)
+        console.log(newarr)
+        let html =
+          `<div class="item">
+          <a href="http://wufazhuce.com/one/1908">
+            <img class="fp-one-imagen" src="${newarr[0].hp_img_url}" alt="">
+          </a>
+          <div class="fp-one-imagen-footer">
+            ${newarr[0].hp_author} </div>
+          <div class="fp-one-cita-wrapper">
+            <div class="fp-one-date">
+              <p class="titulo">${newarr[0].hp_title}</p>
+              <p class="dom">28</p>
+              <p class="may">Nov 2017</p>
+            </div>
+            <div class="fp-one-cita">
+              ${newarr[0].hp_content}
+            </div>
+          </div>
+        </div>
+        `
+        document.querySelector('.carousel').innerHTML += html
+        console.log('a')
+      })
+
+      function renderHtml() {
+        
+      }
+      
+    }
+
+
+
+
+    window.onload = getData()
   </script>
 </body>
 
