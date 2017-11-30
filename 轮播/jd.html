@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>slideshow-jingdong</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    #slideshow {
+      width: 800px;
+      height: 350px;
+      margin: 0 auto;
+      /*设置在页面水平居中*/
+      overflow: hidden;
+      position: relative;
+    }
+
+    #slideshow img {
+      width: 800px;
+      position: absolute;
+      /*图片采取绝对定位，均位于左上角，重叠在一起*/
+      top: 0;
+      left: 0;
+      opacity: 0;
+      /*初始不透明度为0，图片都看不见*/
+      transition: opacity 1s linear;
+      /*--重点--定义一个关于透明度的transition*/
+    }
+
+    #slideshow img.active {
+      opacity: 1;
+      /*有active类的图片不透明度为1，即显示图片*/
+    }
+    /*-- 设置页码的样式 --*/
+
+    #slideshow div {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      padding: 5px;
+      margin-left: -57.5px;
+      /*水平居中，算出来宽度是115px*/
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    #slideshow span {
+      float: left;
+      width: 15px;
+      height: 15px;
+      border-radius: 15px;
+      /*设置页码为圆形*/
+      margin: 0 10px;
+      background: white;
+    }
+
+    #slideshow span.active {
+      background: #FFDD55;
+    }
+    /*-- 设置左右按钮框的样式 --*/
+
+    #slideshow p {
+      width: 30px;
+      line-height: 80px;
+      position: absolute;
+      top: 50%;
+      margin-top: -40px;
+      /*设置垂直居中*/
+      color: white;
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 16px;
+      text-align: center;
+      cursor: pointer;
+      /*设置鼠标*/
+      /*设置不能选择文本*/
+      -ms-user-select: none;
+      /*IE10*/
+      -webkit-user-select: none;
+      /*webkit浏览器*/
+      user-select: none;
+      display: none;
+    }
+
+    #slideshow p.left {
+      left: 0;
+    }
+
+    #slideshow p.right {
+      right: 0;
+    }
+
+    #slideshow:hover p {
+      display: block;
+    }
+
+    #slideshow p:hover {
+      background: rgba(0, 0, 0, 0.6);
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div id="slideshow">
+    <!-- 插入轮播的图片们 -->
+    <img class="active" src="http://img.kumi.cn/photo/01/69/30/016930f03d2e34cc.jpg" />
+    <img src="https://image2.sina.com.cn/dongman/pic/chshidzrcji/U1595P55T4D115697F50DT20070406083109.jpeg" />
+    <img src="http://t1.mmonly.cc/uploads/tu/201602/198/qh1spjs3guk.jpg" />
+    <!-- 插入轮播的页码们 -->
+    <div>
+      <span class="active" name="0"></span>
+      <span name="1"></span>
+      <span name="2"></span>
+    </div>
+    <!--插入左边和右边的按钮框-->
+    <p class="left">&lt;</p>
+    <p class="right">&gt;</p>
+  </div>
+
+  <script>
+    //---------主角：轮播图函数-------------
+    function slideshow() {
+      var slideshow = document.getElementById("slideshow"),
+        imgs = slideshow.getElementsByTagName("img"), //得到图片们
+        pages = slideshow.getElementsByTagName("span"), //得到页码们
+        buttons = slideshow.getElementsByTagName("p"), //得到描述们
+        left_btn = buttons[0],
+        right_btn = buttons[1],
+        current = 0; //current为当前活跃的图片编号
+
+      function slideOff() {
+        imgs[current].className = ""; //图片淡出
+        pages[current].className = "";
+      }
+
+      function slideOn() {
+        imgs[current].className = "active"; //图片淡入
+        pages[current].className = "active";
+      }
+
+      function changeSlide() { //切换图片的函数
+        slideOff();
+        current++; //自增1
+        if (current >= 3) current = 0;
+        slideOn();
+      }
+
+      //每2s调用changeSlide函数进行图片轮播
+      var slideon = setInterval(changeSlide, 2000);
+
+      slideshow.onmouseover = function () {
+        clearInterval(slideon); //当鼠标移入时清除轮播事件
+      }
+      slideshow.onmouseout = function () {
+        slideon = setInterval(changeSlide, 2000); //当鼠标移出时重新开始轮播事件
+      }
+
+      for (var i = 0; i < pages.length; i++) { //定义鼠标移入和移出页码事件
+        pages[i].onmouseover = function () {
+          slideOff(); //图片淡出
+          current = this.getAttribute("name"); //得到鼠标停留的页码对应的current
+          slideOn(); //图片淡出
+        }
+      }
+
+      left_btn.onclick = function () {
+        slideOff(); //图片淡出
+        current--;
+        if (current < 0) current = 2;
+        slideOn(); //图片淡出
+      }
+      right_btn.onclick = function () {
+        slideOff(); //图片淡出
+        current++;
+        if (current > 2) current = 0;
+        slideOn(); //图片淡出
+      }
+    }
+
+    slideshow();
+  </script>
+
+</body>
+
+</html>
